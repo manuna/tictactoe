@@ -1,4 +1,0 @@
-INDEX VERSION 1.126+/home/manuna/programming/github/tictactoe/app/android/.metadata/.plugins/org.eclipse.jdt.core
-3452177425.index
-2840520091.index
-2156880992.index
