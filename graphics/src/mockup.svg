@@ -871,18 +871,6 @@
          mode="normal" />
     </filter>
     <filter
-       inkscape:collect="always"
-       id="filter4873"
-       x="-0.025777778"
-       width="1.0515556"
-       y="-0.348"
-       height="1.696">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="2.9"
-         id="feGaussianBlur4875" />
-    </filter>
-    <filter
        id="filter4877"
        inkscape:label="Inner Shadow"
        inkscape:menu="Shadows and Glows"
@@ -1245,6 +1233,18 @@
          stdDeviation="2.8"
          id="feGaussianBlur4106" />
     </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4103"
+       x="-0.672"
+       width="2.344"
+       y="-0.024888889"
+       height="1.0497778">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.8"
+         id="feGaussianBlur4105" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -1254,8 +1254,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="167.74763"
-     inkscape:cy="210.14818"
+     inkscape:cx="187.43"
+     inkscape:cy="206.75288"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1282,7 +1282,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1557,7 +1557,10 @@
        inkscape:export-ydpi="180" />
     <g
        id="g4040"
-       transform="translate(-60.103243,-242.83202)">
+       transform="translate(-60.103243,-242.83202)"
+       inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/android/drawable-mdpi/button.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          style="fill:#502d16;fill-opacity:1;stroke:none"
          id="rect3908"
@@ -1599,7 +1602,10 @@
          style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ffffff;font-family:Sans;-inkscape-font-specification:Sans Bold">Restart</tspan></text>
     <g
        id="g3996"
-       transform="translate(-65.103243,-242.83202)">
+       transform="translate(-65.103243,-242.83202)"
+       inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/android/drawable-mdpi/button_pressed.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          ry="2"
          rx="2"
@@ -1625,7 +1631,10 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       id="g4069">
+       id="g4069"
+       inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/android/drawable-mdpi/right_segment.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          inkscape:connector-curvature="0"
          id="rect3979"
@@ -1653,7 +1662,10 @@
        x="-149.46875"
        y="638.36218" />
     <g
-       id="g4165">
+       id="g4165"
+       inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/android/drawable-mdpi/right_segment_active.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          inkscape:connector-curvature="0"
          style="fill:#a05a2c;fill-opacity:1;stroke:none"
@@ -1676,9 +1688,15 @@
        height="40"
        width="1"
        id="rect4111"
-       style="fill:#502d16;fill-opacity:1;stroke:none" />
+       style="fill:#502d16;fill-opacity:1;stroke:none"
+       inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/android/drawable-mdpi/segment_separator.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
-       id="g4160">
+       id="g4160"
+       inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/android/drawable-mdpi/left_segment_active.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          inkscape:connector-curvature="0"
          id="path4115"
@@ -1697,7 +1715,10 @@
     </g>
     <g
        transform="matrix(-1,0,0,1,-297.9375,0)"
-       id="g4217">
+       id="g4217"
+       inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/android/drawable-mdpi/left_segment.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          inkscape:connector-curvature="0"
          id="path4219"
@@ -1868,7 +1889,7 @@
            sodipodi:role="line">3x3</tspan></text>
     </g>
     <g
-       id="g4112"
+       id="g4099"
        style="display:none">
       <rect
          ry="5"
@@ -1941,14 +1962,38 @@
     <rect
        rx="2"
        ry="2"
-       inkscape:export-ydpi="180"
-       inkscape:export-xdpi="180"
-       inkscape:export-filename="/home/manuna/Documents/Inkscape/TicTacToe/tictactoe.png"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/android/drawable-mdpi/game_cell.png"
        y="832.63751"
        x="-85.339882"
        height="40"
        width="40"
        id="rect4134"
        style="fill:#e9c6af;fill-opacity:1;stroke:none;filter:url(#filter4877)" />
+    <g
+       id="g4107"
+       style="display:none">
+      <rect
+         style="opacity:0.67000002;fill:#333333;fill-opacity:1;stroke:none;filter:url(#filter4103)"
+         id="rect3327"
+         width="270"
+         height="10"
+         x="-951.36218"
+         y="153.25"
+         rx="5"
+         ry="5"
+         transform="matrix(0,-1,1,0,0,0)" />
+      <rect
+         transform="matrix(0,-1,1,0,0,0)"
+         ry="5"
+         rx="5"
+         y="153.25"
+         x="-949.11218"
+         height="10"
+         width="270"
+         id="rect3322"
+         style="fill:#333333;fill-opacity:1;stroke:none" />
+    </g>
   </g>
 </svg>
