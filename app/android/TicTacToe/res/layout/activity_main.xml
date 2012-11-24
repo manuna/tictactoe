@@ -3,9 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ImageView android:src="@drawable/background"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/hello_world"/>
+        android:contentDescription="@string/hello_world"
+        android:src="@drawable/background" />
+
+    <Button
+        android:id="@+id/restart_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#222222"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:background="@drawable/button_selector"
+        android:text="@string/restart_game"
+        android:textStyle="bold" />
 
 </RelativeLayout>
