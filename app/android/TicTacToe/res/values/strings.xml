@@ -7,5 +7,7 @@
     <string name="restart_game">Restart</string>
     <string name="button_text_color">#FFFFFF</string>
     <string name="button_shadow_color">#000000</string>
+    <string name="button_3x3">3x3</string>
+    <string name="button_5x5">5x5</string>
 
 </resources>

@@ -4,23 +4,67 @@
     android:layout_height="match_parent" >
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         android:contentDescription="@string/hello_world"
-        android:src="@drawable/background" />
+        android:src="@drawable/background"  />
+    
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp">
+        
+        <Button android:id="@+id/button_3x3"
+            android:onClick="on3x3Clicked" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/left_segment_selector"
+            android:text="@string/button_3x3"
+            android:textColor="#ffe6d5"
+	        android:shadowColor="#222222"
+	        android:shadowDy="1"
+	        android:shadowRadius="1"
+	        android:textStyle="bold"
+	        android:textSize="18sp"
+	        android:maxHeight="40dp" />
+        
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/segment_separator"
+            android:contentDescription="@string/hello_world"/>
+        
+        <Button android:id="@+id/button_5x5"
+            android:onClick="on5x5Clicked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/right_segment_selector"
+            android:text="@string/button_5x5"
+            android:textColor="#ffe6d5"
+	        android:shadowColor="#222222"
+	        android:shadowDy="1"
+	        android:shadowRadius="1"
+	        android:textStyle="bold"
+	        android:textSize="18sp"
+	        android:maxHeight="40dp" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/restart_button"
+        android:onClick="onRestartGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minWidth="200dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="18dp"
+        android:minWidth="200dp"
         android:textColor="#FFFFFF"
         android:shadowColor="#222222"
+        android:textSize="18sp"
+        android:maxHeight="40dp"
         android:shadowDy="1"
-        android:shadowRadius="2"
+        android:shadowRadius="1"
         android:background="@drawable/button_selector"
         android:text="@string/restart_game"
         android:textStyle="bold" />
