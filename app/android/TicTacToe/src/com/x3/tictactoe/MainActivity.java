@@ -5,14 +5,18 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 
 public class MainActivity extends Activity {
+	
+	private View mSelectedSegment = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        // Initialize UI
+        selectSegment(findViewById(R.id.button_3x3));
     }
 
     @Override
@@ -23,17 +27,25 @@ public class MainActivity extends Activity {
     
     public void on3x3Clicked(View view) {
     	Log.v("MainActivity", "3x3 button selected");
-    	Button btn = (Button)view;
-    	btn.setSelected(!btn.isSelected());
+    	selectSegment(view);
     }
     
     public void on5x5Clicked(View view) {
     	Log.v("MainActivity", "5x5 button selected");
-    	Button btn = (Button)view;
-    	btn.setSelected(!btn.isSelected());
+    	selectSegment(view);
     }
     
     public void onRestartGame(View view) {
     	Log.v("MainActivity", "Restarting game");
+    }
+    
+    private void selectSegment(View view) {
+    	if (mSelectedSegment != view) {
+    		if (mSelectedSegment != null) {
+    			mSelectedSegment.setSelected(false);
+    		}
+    		mSelectedSegment = view;
+    		mSelectedSegment.setSelected(true);
+    	}
     }
 }
