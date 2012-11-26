@@ -1253,9 +1253,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6568544"
-     inkscape:cx="147.75454"
-     inkscape:cy="403.80762"
+     inkscape:zoom="1"
+     inkscape:cx="398.09268"
+     inkscape:cy="195.62931"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1810,84 +1810,93 @@
          x="-211.10938"
          id="tspan4309"
          sodipodi:role="line">3x3</tspan></text>
+    <rect
+       y="595.42371"
+       x="160.83594"
+       height="40"
+       width="1"
+       id="rect4311"
+       style="fill:#502d16;fill-opacity:1;stroke:none"
+       inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/game.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180" />
     <g
-       id="g4345"
+       transform="translate(310.30468,-96.501839)"
+       id="g4313"
        inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/game.png"
        inkscape:export-xdpi="180"
        inkscape:export-ydpi="180">
-      <rect
-         style="fill:#502d16;fill-opacity:1;stroke:none"
-         id="rect4311"
-         width="1"
-         height="40"
-         x="160.83594"
-         y="595.42371" />
-      <g
-         id="g4313"
-         transform="translate(310.30468,-96.501839)">
-        <path
-           style="fill:#a05a2c;fill-opacity:1;stroke:none"
-           d="m -149.46875,691.92552 0,40 -88,0 c -1.108,0 -2,-0.892 -2,-2 l 0,-36 c 0,-1.108 0.892,-2 2,-2 l 88,0 z"
-           id="path4315"
-           inkscape:connector-curvature="0" />
-        <path
-           style="fill:url(#linearGradient4337);fill-opacity:1;stroke:none"
-           d="m -149.46875,692.92552 0,38 -87,0 c -1.09692,0 -2,-0.85365 -2,-1.90625 l 0,-34.1875 c 0,-1.0526 0.90308,-1.90625 2,-1.90625 l 87,0 z"
-           id="path4317"
-           inkscape:connector-curvature="0" />
-        <path
-           style="fill:url(#linearGradient4339);fill-opacity:1;stroke:none"
-           d="m -149.46875,692.92552 0,19 -89,0 0,-17.09375 c 0,-1.0526 0.79513,-1.90625 1.78125,-1.90625 l 87.21875,0 z"
-           id="path4319"
-           inkscape:connector-curvature="0" />
-      </g>
-      <g
-         id="g4321"
-         transform="translate(310.30468,-42.938502)">
-        <path
-           style="fill:#502d16;fill-opacity:1;stroke:none"
-           d="m -148.46875,66 0,40 88,0 c 1.108,0 2,-0.892 2,-2 l 0,-36 c 0,-1.108 -0.892,-2 -2,-2 l -88,0 z"
-           transform="translate(0,572.36218)"
-           id="path4323"
-           inkscape:connector-curvature="0" />
-        <path
-           style="fill:url(#linearGradient4341);fill-opacity:1;stroke:none"
-           d="m -148.46875,67 0,38 87,0 c 1.09692,0 2,-0.85365 2,-1.90625 l 0,-34.1875 c 0,-1.0526 -0.90308,-1.90625 -2,-1.90625 l -87,0 z"
-           transform="translate(0,572.36218)"
-           id="path4325"
-           inkscape:connector-curvature="0" />
-        <path
-           style="fill:url(#linearGradient4343);fill-opacity:1;stroke:none"
-           d="m -148.46875,67 0,19 89,0 0,-17.09375 C -59.46875,67.85365 -60.263881,67 -61.25,67 l -87.21875,0 z"
-           transform="translate(0,572.36218)"
-           id="path4327"
-           inkscape:connector-curvature="0" />
-      </g>
-      <text
-         xml:space="preserve"
-         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;filter:url(#filter4950);font-family:Serif;-inkscape-font-specification:Serif"
-         x="190"
-         y="622.36218"
-         id="text4329"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan4331"
-           x="190"
-           y="622.36218"
-           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ffe6d5;font-family:Sans;-inkscape-font-specification:Sans Bold">5x5</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text4333"
-         y="622.48914"
-         x="99.195312"
-         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;filter:url(#filter4950);font-family:Serif;-inkscape-font-specification:Serif"
-         xml:space="preserve"><tspan
-           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ffe6d5;font-family:Sans;-inkscape-font-specification:Sans Bold"
-           y="622.48914"
-           x="99.195313"
-           id="tspan4335"
-           sodipodi:role="line">3x3</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4315"
+         d="m -149.46875,691.92552 0,40 -88,0 c -1.108,0 -2,-0.892 -2,-2 l 0,-36 c 0,-1.108 0.892,-2 2,-2 l 88,0 z"
+         style="fill:#a05a2c;fill-opacity:1;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4317"
+         d="m -149.46875,692.92552 0,38 -87,0 c -1.09692,0 -2,-0.85365 -2,-1.90625 l 0,-34.1875 c 0,-1.0526 0.90308,-1.90625 2,-1.90625 l 87,0 z"
+         style="fill:url(#linearGradient4337);fill-opacity:1;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4319"
+         d="m -149.46875,692.92552 0,19 -89,0 0,-17.09375 c 0,-1.0526 0.79513,-1.90625 1.78125,-1.90625 l 87.21875,0 z"
+         style="fill:url(#linearGradient4339);fill-opacity:1;stroke:none" />
     </g>
+    <g
+       transform="translate(310.30468,-42.938502)"
+       id="g4321"
+       inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/game.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4323"
+         transform="translate(0,572.36218)"
+         d="m -148.46875,66 0,40 88,0 c 1.108,0 2,-0.892 2,-2 l 0,-36 c 0,-1.108 -0.892,-2 -2,-2 l -88,0 z"
+         style="fill:#502d16;fill-opacity:1;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4325"
+         transform="translate(0,572.36218)"
+         d="m -148.46875,67 0,38 87,0 c 1.09692,0 2,-0.85365 2,-1.90625 l 0,-34.1875 c 0,-1.0526 -0.90308,-1.90625 -2,-1.90625 l -87,0 z"
+         style="fill:url(#linearGradient4341);fill-opacity:1;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4327"
+         transform="translate(0,572.36218)"
+         d="m -148.46875,67 0,19 89,0 0,-17.09375 C -59.46875,67.85365 -60.263881,67 -61.25,67 l -87.21875,0 z"
+         style="fill:url(#linearGradient4343);fill-opacity:1;stroke:none" />
+    </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4329"
+       y="622.36218"
+       x="190"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter4950);font-family:Serif;-inkscape-font-specification:Serif"
+       xml:space="preserve"
+       inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/game.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180"><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ffffff;font-family:Sans;-inkscape-font-specification:Sans Bold"
+         y="622.36218"
+         x="190"
+         id="tspan4331"
+         sodipodi:role="line">5x5</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter4950);font-family:Serif;-inkscape-font-specification:Serif"
+       x="99.195312"
+       y="622.48914"
+       id="text4333"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/manuna/programming/github/tictactoe/graphics/png/game.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180"><tspan
+         sodipodi:role="line"
+         id="tspan4335"
+         x="99.195312"
+         y="622.48914"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ffffff;font-family:Sans;-inkscape-font-specification:Sans Bold">3x3</tspan></text>
     <g
        id="g4099"
        style="display:none">

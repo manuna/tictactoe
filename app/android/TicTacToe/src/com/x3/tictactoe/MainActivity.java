@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 
@@ -22,10 +23,14 @@ public class MainActivity extends Activity {
     
     public void on3x3Clicked(View view) {
     	Log.v("MainActivity", "3x3 button selected");
+    	Button btn = (Button)view;
+    	btn.setSelected(!btn.isSelected());
     }
     
     public void on5x5Clicked(View view) {
     	Log.v("MainActivity", "5x5 button selected");
+    	Button btn = (Button)view;
+    	btn.setSelected(!btn.isSelected());
     }
     
     public void onRestartGame(View view) {
