@@ -44,5 +44,20 @@
         android:background="@drawable/button_selector"
         android:text="@string/restart_game"
         style="@style/ButtonStyle" />
+    
+    <TableLayout android:id="@+id/playground_root_3x3"
+        android:minWidth="290dp"
+        android:minHeight="290dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+    
+    <TableLayout android:id="@+id/playground_root_5x5"
+        android:minWidth="290dp"
+        android:minHeight="290dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
 
 </RelativeLayout>
