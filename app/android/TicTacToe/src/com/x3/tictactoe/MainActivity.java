@@ -74,14 +74,14 @@ public class MainActivity extends Activity {
     
     private void generatePlayground(TableLayout layout, int size) {
     	layout.removeAllViews();
-    	    	
+    	  
     	for (int i = 0; i < size; i++) {
     		TableRow row = new TableRow(this);
     		for (int j = 0; j < size; j++) {
     			ImageButton cell = new ImageButton(this);
     			cell.setBackgroundResource(R.drawable.game_cell);
-    			row.addView(cell,  new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
-                        TableRow.LayoutParams.MATCH_PARENT, 1));
+    			row.addView(cell,  new TableRow.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
+    					TableLayout.LayoutParams.MATCH_PARENT, 1));
     		}
     		
     		layout.addView(row, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
