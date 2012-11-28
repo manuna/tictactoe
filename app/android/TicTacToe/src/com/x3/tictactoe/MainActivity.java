@@ -81,11 +81,11 @@ public class MainActivity extends Activity {
     			ImageButton cell = new ImageButton(this);
     			cell.setBackgroundResource(R.drawable.game_cell);
     			row.addView(cell,  new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
-                        TableRow.LayoutParams.MATCH_PARENT));
+                        TableRow.LayoutParams.MATCH_PARENT, 1));
     		}
-    		    		
+    		
     		layout.addView(row, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
-                    TableLayout.LayoutParams.MATCH_PARENT));
+                    TableLayout.LayoutParams.MATCH_PARENT, 1));
     	}
     }
 }
