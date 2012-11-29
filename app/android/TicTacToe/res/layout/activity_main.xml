@@ -45,11 +45,7 @@
         android:text="@string/restart_game"
         style="@style/ButtonStyle" />
     
-    <TableLayout android:id="@+id/playground_root_3x3"
-        style="@style/PlaygroundStyle" />
-    
-    <TableLayout android:id="@+id/playground_root_5x5"
-        android:visibility="invisible"
+    <com.x3.tictactoe.PlaygroundView android:id="@+id/playground"
         style="@style/PlaygroundStyle" />
 
 </RelativeLayout>

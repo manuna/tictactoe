@@ -5,15 +5,13 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 
 public class MainActivity extends Activity {
 	
 	private View mSelectedSegment = null;
-	private TableLayout mPlayground3x3 = null;
-	private TableLayout mPlayground5x5 = null;
+	private PlaygroundView mPlaygroundView = null;
+	private Playground mPlayground = new Playground(3);
+	private int mValue = Playground.X;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,13 +19,17 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         
         // Initialize UI
+        mPlaygroundView = (PlaygroundView)findViewById(R.id.playground);
+        mPlaygroundView.setPlayground(mPlayground);
+        mPlaygroundView.setListener(new PlaygroundView.OnClickListener() {
+			
+			@Override
+			public void onClick(PlaygroundView view, int cellX, int cellY) {
+				onPlaygroundClick(cellX, cellY);
+			}
+		});
+        
         selectSegment(findViewById(R.id.button_3x3));
-        
-        mPlayground3x3 = (TableLayout)findViewById(R.id.playground_root_3x3);
-        generatePlayground(mPlayground3x3, 3);
-        
-        mPlayground5x5 = (TableLayout)findViewById(R.id.playground_root_5x5);
-        generatePlayground(mPlayground5x5, 5);
     }
 
     @Override
@@ -39,22 +41,14 @@ public class MainActivity extends Activity {
     public void on3x3Clicked(View view) {
     	Log.v("MainActivity", "3x3 button selected");
     	
-    	if (view != mSelectedSegment) {
-    		mPlayground5x5.setVisibility(View.INVISIBLE);
-    		mPlayground3x3.setVisibility(View.VISIBLE);
-    	}
-    	
+    	mPlayground.setSize(3);
     	selectSegment(view);
     }
     
     public void on5x5Clicked(View view) {
     	Log.v("MainActivity", "5x5 button selected");
     	
-    	if (view != mSelectedSegment) {
-    		mPlayground5x5.setVisibility(View.VISIBLE);
-    		mPlayground3x3.setVisibility(View.INVISIBLE);
-    	}
-    	
+    	mPlayground.setSize(5);
     	selectSegment(view);
     }
     
@@ -72,20 +66,13 @@ public class MainActivity extends Activity {
     	}
     }
     
-    private void generatePlayground(TableLayout layout, int size) {
-    	layout.removeAllViews();
-    	  
-    	for (int i = 0; i < size; i++) {
-    		TableRow row = new TableRow(this);
-    		for (int j = 0; j < size; j++) {
-    			ImageButton cell = new ImageButton(this);
-    			cell.setBackgroundResource(R.drawable.game_cell);
-    			row.addView(cell,  new TableRow.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
-    					TableLayout.LayoutParams.MATCH_PARENT, 1));
-    		}
-    		
-    		layout.addView(row, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
-                    TableLayout.LayoutParams.MATCH_PARENT, 1));
+    private void onPlaygroundClick(int cellX, int cellY) {
+    	mPlayground.set(cellX, cellY, mValue);
+    	if (mValue == Playground.X) {
+    		mValue = Playground.O;
+    	} else {
+    		mValue = Playground.X;
     	}
     }
+    
 }
