@@ -59,19 +59,17 @@ public class PlaygroundView extends View implements Playground.Listener {
 	}
 	
 	public void reload(int cellX, int cellY) {
-		invalidate();
-		/*
 		if (mPlayground != null) {
 			final int playgroundSize = mPlayground.getSize();
 			final int cellWidth = getMeasuredWidth() / playgroundSize;
 			final int cellHeight = getMeasuredHeight() / playgroundSize;
 			final int left = cellX * cellWidth, top = cellY * cellHeight;
 			
-			invalidate(left, top, left + cellX * cellWidth, top + cellY
+			invalidate(left, top, left + (cellX + 1) * cellWidth, top + (cellY + 1)
 					* cellHeight);
 		} else {
 			invalidate();
-		}*/
+		}
 	}
 
 	@Override
