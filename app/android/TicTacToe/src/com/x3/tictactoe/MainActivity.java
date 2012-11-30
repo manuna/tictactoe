@@ -54,6 +54,7 @@ public class MainActivity extends Activity {
     
     public void onRestartGame(View view) {
     	Log.v("MainActivity", "Restarting game");
+    	mPlayground.reset();
     }
     
     private void selectSegment(View view) {
@@ -67,11 +68,12 @@ public class MainActivity extends Activity {
     }
     
     private void onPlaygroundClick(int cellX, int cellY) {
-    	mPlayground.set(cellX, cellY, mValue);
-    	if (mValue == Playground.X) {
-    		mValue = Playground.O;
-    	} else {
-    		mValue = Playground.X;
+    	if (mPlayground.set(cellX, cellY, mValue)) {
+	    	if (mValue == Playground.X) {
+	    		mValue = Playground.O;
+	    	} else {
+	    		mValue = Playground.X;
+	    	}
     	}
     }
     

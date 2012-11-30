@@ -1,5 +1,7 @@
 package com.x3.tictactoe;
 
+import java.util.Arrays;
+
 public class Playground {
 
 	public interface Listener {
@@ -19,6 +21,13 @@ public class Playground {
 	
 	public Playground(int size) {
 		setSize(size);
+	}
+	
+	public void reset() {
+		Arrays.fill(mField, 0);
+		if (mListener != null) {
+			mListener.onReset();
+		}
 	}
 	
 	public int getSize() {
@@ -46,12 +55,17 @@ public class Playground {
 		return mField[y * mSize + x];
 	}
 	
-	public void set(int x, int y, int value) {
-		mField[y * mSize + x] = value;
-		
-		if (mListener != null) {
-			mListener.onElementChanged(x, y);
+	public boolean set(int x, int y, int value) {
+		int index = y * mSize + x;
+		boolean succeeded = (mField[index] == 0); 
+		if (succeeded) {
+			mField[y * mSize + x] = value;
+			
+			if (mListener != null) {
+				mListener.onElementChanged(x, y);
+			}
 		}
+		return succeeded;
 	}
 	
 }
