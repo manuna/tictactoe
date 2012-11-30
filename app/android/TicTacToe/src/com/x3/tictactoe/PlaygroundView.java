@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-public class PlaygroundView extends View implements Playground.Listener {
+public class PlaygroundView extends View implements Playground.DataListener {
 
 	public interface OnClickListener {
 		
@@ -33,14 +33,14 @@ public class PlaygroundView extends View implements Playground.Listener {
 	}
 	
 	public void setPlayground(Playground playground) {
-		if (mPlayground != null && mPlayground.getListener() == this) {
-			mPlayground.setListener(null);
+		if (mPlayground != null && mPlayground.getDataListener() == this) {
+			mPlayground.setDataListener(null);
 		}
 		
 		mPlayground = playground;
 		
 		if (mPlayground != null) {
-			mPlayground.setListener(this);
+			mPlayground.setDataListener(this);
 		}
 		
 		reload();
@@ -146,5 +146,5 @@ public class PlaygroundView extends View implements Playground.Listener {
 	public void onElementChanged(int x, int y) {
 		reload(x, y);
 	}
-
+	
 }

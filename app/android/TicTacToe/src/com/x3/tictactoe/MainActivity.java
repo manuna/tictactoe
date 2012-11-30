@@ -2,11 +2,13 @@ package com.x3.tictactoe;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements Playground.GameListener {
 	
 	private View mSelectedSegment = null;
 	private PlaygroundView mPlaygroundView = null;
@@ -17,6 +19,9 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        // Initialize objects
+        mPlayground.addGameListener(this);
         
         // Initialize UI
         mPlaygroundView = (PlaygroundView)findViewById(R.id.playground);
@@ -54,6 +59,10 @@ public class MainActivity extends Activity {
     
     public void onRestartGame(View view) {
     	Log.v("MainActivity", "Restarting game");
+    	restartGame();
+    }
+    
+    private void restartGame() {
     	mPlayground.reset();
     }
     
@@ -76,5 +85,32 @@ public class MainActivity extends Activity {
 	    	}
     	}
     }
+
+	@Override
+	public void onGameEnded(int result) {
+		String gameResultMsg = null;
+		if (result == Playground.GAME_RESULT_X_WINS) {
+			gameResultMsg = getResources().getString(R.string.x_wins);
+		} else if (result == Playground.GAME_RESULT_O_WINS) {
+			gameResultMsg = getResources().getString(R.string.o_wins);
+		} else {
+			gameResultMsg = getResources().getString(R.string.game_draw);
+		}
+		
+		AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+
+		dlgAlert.setMessage(gameResultMsg);
+		dlgAlert.setTitle(getResources().getString(R.string.app_name));
+		dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				restartGame();
+			}
+			
+		});
+		dlgAlert.setCancelable(true);
+		dlgAlert.create().show();
+	}
     
 }
