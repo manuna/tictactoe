@@ -125,11 +125,17 @@ public class PlaygroundView extends View implements Playground.DataListener {
 		final int playgroundSize = mPlayground.getSize();
 		if (eventAction == MotionEvent.ACTION_CANCEL
 				|| eventAction == MotionEvent.ACTION_UP) {
-			int cellX = (int)(event.getX() * playgroundSize / getMeasuredWidth());
-			int cellY = (int)(event.getY() * playgroundSize / getMeasuredHeight());
+			final float viewX = event.getX();
+			final float viewY = event.getY();
 			
-			if (mListener != null) {
-				mListener.onClick(this, cellX, cellY);
+			if (viewX >= 0 && viewX <= getMeasuredWidth() && viewY >= 0
+					&& viewY <= getMeasuredHeight()) {
+				final int cellX = (int) (event.getX() * playgroundSize / getMeasuredWidth());
+				final int cellY = (int) (event.getY() * playgroundSize / getMeasuredHeight());
+
+				if (mListener != null) {
+					mListener.onClick(this, cellX, cellY);
+				}
 			}
 		}
 		
