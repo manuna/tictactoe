@@ -98,83 +98,63 @@ public class Playground {
 		return succeeded;
 	}
 	
-	private int getRowMajorElement(int row) {
-		int majorElement = 0;
-		// Find winning element in row
+	private int tokenCountInRow(int row, int token) {
+		int count = 0;
 		for (int i = 0; i < mSize; i++) {
-			int element = get(i, row);
-			if (element == 0) {
-				majorElement = 0;
-				break;
-			}
-			if (majorElement == 0) {
-				majorElement = element;
-			} else if (element != majorElement) {
-				majorElement = 0;
-				break;
+			if (get(i, row) == token) {
+				count++;
 			}
 		}
-		return majorElement;
+		return count;
 	}
 	
-	private int getColumnMajorElement(int column) {
-		int majorElement = 0;
-		// Find winning element in column
+	private int tokenCountInColumn(int column, int token) {
+		int count = 0;
 		for (int i = 0; i < mSize; i++) {
-			int element = get(column, i);
-			if (element == 0) {
-				majorElement = 0;
-				break;
-			}
-			if (majorElement == 0) {
-				majorElement = element;
-			} else if (element != majorElement) {
-				majorElement = 0;
-				break;
+			if (get(column, i) == token) {
+				count++;
 			}
 		}
-		return majorElement;
+		return count;
 	}
 	
-	private int getDiagMajorElement(boolean mainDiag) {
-		int majorElement = 0;
-		// Find winning element in column
+	private int tokenCountInDiag(boolean mainDiag, int token) {
+		int count = 0;
 		for (int i = 0; i < mSize; i++) {
-			int column = (mainDiag ? i : (mSize - i - 1));
-			int element = get(column, i);
-			if (element == 0) {
-				majorElement = 0;
-				break;
-			}
-			if (majorElement == 0) {
-				majorElement = element;
-			} else if (element != majorElement) {
-				majorElement = 0;
-				break;
+			int col = mainDiag ? i : (mSize - i - 1);
+			if (get(col, i) == token) {
+				count++;
 			}
 		}
-		return majorElement;
+		return count;
+	}
+	
+	private boolean isWinner(int token) {
+		boolean isWinner = false;
+		
+		// Check diagonals
+		isWinner = (tokenCountInDiag(true, token) == mSize)
+				|| (tokenCountInDiag(false, token) == mSize);
+		
+		// Check rows
+		for (int i = 0; i < mSize && !isWinner; i++) {
+			isWinner = (tokenCountInRow(i, token) == mSize);
+		}
+		
+		// Check columns
+		for (int i = 0; i < mSize && !isWinner; i++) {
+			isWinner = (tokenCountInColumn(i, token) == mSize);
+		}
+		return isWinner;
 	}
 	
 	private void checkWinner() {
-		int majorElement = 0;
-		
-		if ((majorElement = getDiagMajorElement(true)) != 0 ||
-			(majorElement = getDiagMajorElement(false)) != 0) {
-			finishGame(majorElement);
-		} else {
-			for (int i = 0; i < mSize && majorElement == 0; i++) {
-				majorElement = getRowMajorElement(i);
-			}
-			for (int i = 0; i < mSize && majorElement == 0; i++) {
-				majorElement = getColumnMajorElement(i);
-			}
-			
-			if (majorElement != 0) {
-				finishGame(majorElement);
-			} else if (mFreeCells == 0) {
-				finishGame(GAME_RESULT_TIE);
-			}
+		if (isWinner(X)) {
+			finishGame(GAME_RESULT_X_WINS);
+		} else if (isWinner(O)) {
+			finishGame(GAME_RESULT_O_WINS);
+		} else if (mFreeCells == 0) {
+			finishGame(GAME_RESULT_TIE);
 		}
 	}
 	
