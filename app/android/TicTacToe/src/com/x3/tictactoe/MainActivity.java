@@ -78,11 +78,7 @@ public class MainActivity extends Activity implements Playground.GameListener {
     
     private void onPlaygroundClick(int cellX, int cellY) {
     	if (mPlayground.set(cellX, cellY, mValue)) {
-	    	if (mValue == Playground.X) {
-	    		mValue = Playground.O;
-	    	} else {
-	    		mValue = Playground.X;
-	    	}
+	    	mPlayground.aiPlay(Playground.O);
     	}
     }
 
