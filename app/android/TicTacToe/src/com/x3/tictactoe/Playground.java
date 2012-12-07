@@ -3,6 +3,9 @@ package com.x3.tictactoe;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+
+import android.util.Log;
 
 import com.x3.tictactoe.utils.ArrayUtils;
 
@@ -22,6 +25,8 @@ public class Playground {
 		
 	}
 	
+	final private static String TAG = Playground.class.getSimpleName();
+	
 	final public static int X = 1;
 	final public static int O = 2;
 	
@@ -29,8 +34,12 @@ public class Playground {
 	final public static int GAME_RESULT_X_WINS = X;
 	final public static int GAME_RESULT_O_WINS = O;
 	
+	private Random mRandom = new Random(System.currentTimeMillis());
+	
 	private int mSize = 0;
 	private int[] mField = null;
+	private int[][] mAIWeightsX = null;
+	private int[][] mAIWeightsO = null;
 	private boolean mFinished = false;
 	private int mFreeCells = 0;
 	private DataListener mDataListener = null;
@@ -56,6 +65,8 @@ public class Playground {
 	public void setSize(int size) {
 		mSize = size;
 		mField = new int[size * size];
+		mAIWeightsX = new int[size][size];
+		mAIWeightsO = new int[size][size];
 		mFreeCells = mField.length;
 		mFinished = false;
 		
@@ -100,116 +111,90 @@ public class Playground {
 		return succeeded;
 	}
 	
+	private void updateAIWeights(int token) {
+		int[][] weights = (token == X) ? mAIWeightsX : mAIWeightsO;
+		
+		// Update row weights
+		for (int i = 0; i < mSize; i++) {
+			int count = tokenCountInRow(i, token);
+			for (int j = 0; j < mSize; j++) {
+				weights[j][i] = (get(j, i) == 0) ? count : -1;
+			}
+		}
+		
+		// Update column weights
+		for (int i = 0; i < mSize; i++) {
+			int count = tokenCountInColumn(i, token);
+			for (int j = 0; j < mSize; j++) {
+				// Put maximum value
+				weights[i][j] = (get(i, j) == 0) ? Math.max(count,
+						weights[i][j]) : -1;
+			}
+		}
+		
+		int mainDiagCount = tokenCountInDiag(true, token);
+		for (int i = 0; i < mSize; i++) {
+			weights[i][i] = (get(i, i) == 0) ? Math.max(mainDiagCount,
+					weights[i][i]) : -1;
+		}
+		
+		int diagCount = tokenCountInDiag(false, token);
+		for (int i = 0; i < mSize; i++) {
+			int col = mSize - i - 1;
+			weights[col][i] = (get(col, i) == 0) ? Math.max(diagCount,
+					weights[col][i]) : -1;
+		}
+		
+		Log.v(TAG,
+				"Weights for token " + token + " " + Arrays.deepToString(weights));
+	}
+	
 	private int[] nextMove(int token) {
-		int opponent = (token == X) ? O : X;
+		// Update AI logic weights
+		updateAIWeights(X);
+		updateAIWeights(O);
 		
-		final int defenceThreshold = mSize - 1;
-		final int attackThreshold = mSize - 1;
+		int[][] aiWeights = (token == X) ? mAIWeightsX : mAIWeightsO;
+		int[][] playerWeights = (token == X) ? mAIWeightsO : mAIWeightsX;
 		
-		int[] diagCountAI = { tokenCountInDiag(true, token),
-				tokenCountInDiag(false, token) };
-		int[] diagCountPlayer = { tokenCountInDiag(true, opponent),
-				tokenCountInDiag(false, opponent) };
-		
-		int[] rowCountAI = new int[mSize];
-		int[] rowCountPlayer = new int[mSize];
+		// Calculate attack possibilities
+		int maxAttackWeight = -1;
 		for (int i = 0; i < mSize; i++) {
-			rowCountAI[i] = tokenCountInRow(i, token);
-			rowCountPlayer[i] = tokenCountInRow(i, opponent);
+			int maxColWeight = ArrayUtils.maxElement(aiWeights[i]);
+			if (maxColWeight > maxAttackWeight) {
+				maxAttackWeight = maxColWeight;
+			}
 		}
 		
-		int[] colCountAI = new int[mSize];
-		int[] colCountPlayer = new int[mSize];
-		for (int i = 0; i < mSize; i++) {
-			colCountAI[i] = tokenCountInColumn(i, token);
-			colCountPlayer[i] = tokenCountInColumn(i, opponent);
-		}
-		
-		// Attack tactics
-		int[] diagPriorities = new int[] { diagCountPlayer[0] == 0 ? diagCountAI[0] : 0,
-				diagCountPlayer[1] == 0 ? diagCountAI[1] : 0 };
-		int[] rowPriorities = new int[mSize];
-		int[] colPriorities = new int[mSize];
-		
-		for (int i = 0; i < mSize; i++) {
-			rowPriorities[i] = rowCountPlayer[i] == 0 ? rowCountAI[i] : 0;
-		}
-		
-		for (int i = 0; i < mSize; i++) {
-			colPriorities[i] = colCountPlayer[i] == 0 ? colCountAI[i] : 0;
-		}
-		
-		int maxDiagPriority = ArrayUtils.maxElement(diagPriorities);
-		int maxRowPriority = ArrayUtils.maxElement(rowPriorities);
-		int maxColPriority = ArrayUtils.maxElement(colPriorities);
-		
-		if (maxDiagPriority < attackThreshold && maxRowPriority < attackThreshold
-				&& maxColPriority < attackThreshold) {
-			// Defend tactics
-			if (diagCountAI[0] == 0 && diagCountPlayer[0] >= defenceThreshold) {
-				for (int i = 0; i < mSize; i++) {
-					if (get(i, i) == 0) {
-						return new int[] {i, i};
+		// Calculate defense possibilities if AI is not winning
+		if (maxAttackWeight < mSize - 1) {
+			ArrayList<int[]> defenseMoves = new ArrayList<int[]>(4);
+			for (int i = 0; i < mSize; i++) {
+				for (int j = 0; j < mSize; j++) {
+					if (playerWeights[i][j] >= mSize - 1) {
+						defenseMoves.add(new int[] {i, j});
 					}
 				}
 			}
 			
-			if (diagCountAI[1] == 0 && diagCountPlayer[1] >= defenceThreshold) {
-				for (int i = 0; i < mSize; i++) {
-					int col = mSize - i - 1;
-					if (get(col, i) == 0) {
-						return new int[] {col, i};
-					}
-				}
+			// Defense
+			if (defenseMoves.size() > 0) {
+				return defenseMoves.get(mRandom.nextInt(defenseMoves.size()));
 			}
-			
-			for (int i = 0; i < mSize; i++) {
-				if (rowCountAI[i] == 0 && rowCountPlayer[i] >= defenceThreshold) {
-					for (int j = 0; j < mSize; j++) {
-						if (get(j, i) == 0) {
-							return new int[] {j, i};
-						}
-					}
-				}
-			}
-			
-			for (int i = 0; i < mSize; i++) {
-				if (colCountAI[i] == 0 && colCountPlayer[i] >= defenceThreshold) {
-					for (int j = 0; j < mSize; j++) {
-						if (get(i, j) == 0) {
-							return new int[] {i, j};
-						}
-					}
+		}
+		
+		// Attack
+		ArrayList<int[]> attackMoves = new ArrayList<int[]>(mSize * mSize);
+		for (int i = 0; i < mSize; i++) {
+			for (int j = 0; j < mSize; j++) {
+				if (aiWeights[i][j] == maxAttackWeight) {
+					attackMoves.add(new int[] {i, j});
 				}
 			}
 		}
 		
-		// Continue attack tactics
-		if (maxDiagPriority > maxRowPriority && maxDiagPriority > maxColPriority) {
-			int diagIdx = ArrayUtils.search(diagPriorities, maxDiagPriority);
-			if (diagIdx >= 0) {
-				boolean mainDiag = (diagIdx == 0);
-				for (int i = 0; i < mSize; i++) {
-					int col = mainDiag ? i : mSize - i -  1;
-					if (get(col, i) == 0) {
-						return new int[] {col, i};
-					}
-				}
-			}
-		} else if (maxRowPriority > maxColPriority) {
-			int rowIdx = ArrayUtils.search(rowPriorities, maxRowPriority);
-			for (int i = 0; i < mSize; i++) {
-				if (get(i, rowIdx) == 0) {
-					return new int[] {i, rowIdx};
-				}
-			}
-		} else {
-			int colIdx = ArrayUtils.search(colPriorities, maxColPriority);
-			for (int i = 0; i < mSize; i++) {
-				if (get(colIdx, i) == 0) {
-					return new int[] {colIdx, i};
-				}
-			}
+		if (attackMoves.size() > 0) {
+			return attackMoves.get(mRandom.nextInt(attackMoves.size()));
 		}
 		
 		return null;
