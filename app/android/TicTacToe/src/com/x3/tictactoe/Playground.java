@@ -34,9 +34,13 @@ public class Playground {
 	final public static int GAME_RESULT_X_WINS = X;
 	final public static int GAME_RESULT_O_WINS = O;
 	
+	final public static int AI_CELL_OCCUPIED = -1000;
+	final public static int AI_CELL_NO_WIN = -1;  
+	
 	private Random mRandom = new Random(System.currentTimeMillis());
 	
 	private int mSize = 0;
+	private int mWinCellsCount = 0;
 	private int[] mField = null;
 	private int[][] mAIWeightsX = null;
 	private int[][] mAIWeightsO = null;
@@ -69,6 +73,7 @@ public class Playground {
 		mAIWeightsO = new int[size][size];
 		mFreeCells = mField.length;
 		mFinished = false;
+		mWinCellsCount = size;
 		
 		if (mDataListener != null) {
 			mDataListener.onReset();
@@ -113,36 +118,45 @@ public class Playground {
 	
 	private void updateAIWeights(int token) {
 		int[][] weights = (token == X) ? mAIWeightsX : mAIWeightsO;
+		int opponentToken = (token == X) ? O : X;
 		
 		// Update row weights
 		for (int i = 0; i < mSize; i++) {
 			int count = tokenCountInRow(i, token);
+			int opponentCount = tokenCountInRow(i, opponentToken);
+			int weight = (opponentCount == 0) ? count : AI_CELL_NO_WIN;
 			for (int j = 0; j < mSize; j++) {
-				weights[j][i] = (get(j, i) == 0) ? count : -1;
+				weights[j][i] = (get(j, i) == 0) ? weight : AI_CELL_OCCUPIED;
 			}
 		}
 		
 		// Update column weights
 		for (int i = 0; i < mSize; i++) {
 			int count = tokenCountInColumn(i, token);
+			int opponentCount = tokenCountInColumn(i, opponentToken);
+			int weight = (opponentCount == 0) ? count : AI_CELL_NO_WIN;
 			for (int j = 0; j < mSize; j++) {
 				// Put maximum value
-				weights[i][j] = (get(i, j) == 0) ? Math.max(count,
-						weights[i][j]) : -1;
+				weights[i][j] = (get(i, j) == 0) ? Math.max(weight,
+						weights[i][j]) : AI_CELL_OCCUPIED;
 			}
 		}
 		
 		int mainDiagCount = tokenCountInDiag(true, token);
+		int opponentMainDiagCount = tokenCountInDiag(true, opponentToken);
+		int mainDiagWeight = (opponentMainDiagCount == 0) ? mainDiagCount : AI_CELL_NO_WIN;
 		for (int i = 0; i < mSize; i++) {
-			weights[i][i] = (get(i, i) == 0) ? Math.max(mainDiagCount,
-					weights[i][i]) : -1;
+			weights[i][i] = (get(i, i) == 0) ? Math.max(mainDiagWeight,
+					weights[i][i]) : AI_CELL_OCCUPIED;
 		}
 		
 		int diagCount = tokenCountInDiag(false, token);
+		int opponentDiagCount = tokenCountInDiag(true, opponentToken);
+		int diagWeight = (opponentDiagCount == 0) ? diagCount : AI_CELL_NO_WIN;
 		for (int i = 0; i < mSize; i++) {
 			int col = mSize - i - 1;
-			weights[col][i] = (get(col, i) == 0) ? Math.max(diagCount,
-					weights[col][i]) : -1;
+			weights[col][i] = (get(col, i) == 0) ? Math.max(diagWeight,
+					weights[col][i]) : AI_CELL_OCCUPIED;
 		}
 		
 		Log.v(TAG,
@@ -158,7 +172,7 @@ public class Playground {
 		int[][] playerWeights = (token == X) ? mAIWeightsO : mAIWeightsX;
 		
 		// Calculate attack possibilities
-		int maxAttackWeight = -1;
+		int maxAttackWeight = AI_CELL_OCCUPIED;
 		for (int i = 0; i < mSize; i++) {
 			int maxColWeight = ArrayUtils.maxElement(aiWeights[i]);
 			if (maxColWeight > maxAttackWeight) {
@@ -167,11 +181,11 @@ public class Playground {
 		}
 		
 		// Calculate defense possibilities if AI is not winning
-		if (maxAttackWeight < mSize - 1) {
+		if (maxAttackWeight < mWinCellsCount - 1) {
 			ArrayList<int[]> defenseMoves = new ArrayList<int[]>(4);
 			for (int i = 0; i < mSize; i++) {
 				for (int j = 0; j < mSize; j++) {
-					if (playerWeights[i][j] >= mSize - 1) {
+					if (playerWeights[i][j] >= mWinCellsCount - 1) {
 						defenseMoves.add(new int[] {i, j});
 					}
 				}
@@ -242,17 +256,17 @@ public class Playground {
 		boolean isWinner = false;
 		
 		// Check diagonals
-		isWinner = (tokenCountInDiag(true, token) == mSize)
-				|| (tokenCountInDiag(false, token) == mSize);
+		isWinner = (tokenCountInDiag(true, token) == mWinCellsCount)
+				|| (tokenCountInDiag(false, token) == mWinCellsCount);
 		
 		// Check rows
-		for (int i = 0; i < mSize && !isWinner; i++) {
-			isWinner = (tokenCountInRow(i, token) == mSize);
+		for (int i = 0; i < mWinCellsCount && !isWinner; i++) {
+			isWinner = (tokenCountInRow(i, token) == mWinCellsCount);
 		}
 		
 		// Check columns
-		for (int i = 0; i < mSize && !isWinner; i++) {
-			isWinner = (tokenCountInColumn(i, token) == mSize);
+		for (int i = 0; i < mWinCellsCount && !isWinner; i++) {
+			isWinner = (tokenCountInColumn(i, token) == mWinCellsCount);
 		}
 		return isWinner;
 	}

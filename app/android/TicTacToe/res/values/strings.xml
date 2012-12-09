@@ -1,8 +1,8 @@
 <resources>
 
     <string name="app_name">Tic Tac Toe Classic</string>
+    <string name="no_desc">No Description</string>
     <string name="background_desc">Background Image</string>
-    <string name="segment_separator_desc">Segment Separator</string>
     <string name="title_activity_main">Tic Tac Toe Classic</string>
     <string name="restart_game">Restart</string>
     <string name="button_text_color">#FFFFFF</string>
