@@ -77,7 +77,7 @@ public class Playground {
 		mAIWeightsO = new int[size][size];
 		mFreeCells = mField.length * mField[0].length;
 		mFinished = false;
-		mWinCellsCount = 3;
+		mWinCellsCount = Math.min(4, size);
 		
 		if (mDataListener != null) {
 			mDataListener.onReset();
@@ -233,26 +233,39 @@ public class Playground {
 		// Calculate attack possibilities
 		int maxAttackWeight = AI_CELL_OCCUPIED;
 		for (int i = 0; i < mSize; i++) {
-			int maxColWeight = ArrayUtils.maxElement(aiWeights[i]);
-			if (maxColWeight > maxAttackWeight) {
-				maxAttackWeight = maxColWeight;
+			int maxRowWeight = ArrayUtils.maxElement(aiWeights[i]);
+			if (maxRowWeight > maxAttackWeight) {
+				maxAttackWeight = maxRowWeight;
 			}
 		}
 		
+		final int defenseMinWeight = 2;
+		final int attackMinWeight = mWinCellsCount - 1;
+		
 		// Calculate defense possibilities if AI is not winning
-		if (maxAttackWeight < mWinCellsCount - 1) {
-			ArrayList<int[]> defenseMoves = new ArrayList<int[]>(4);
+		if (maxAttackWeight < attackMinWeight) {
+			int maxDefenseWeight = AI_CELL_OCCUPIED;
 			for (int i = 0; i < mSize; i++) {
-				for (int j = 0; j < mSize; j++) {
-					if (playerWeights[i][j] >= mWinCellsCount - 1) {
-						defenseMoves.add(new int[] {i, j});
-					}
+				int maxRowWeight = ArrayUtils.maxElement(playerWeights[i]);
+				if (maxRowWeight > maxDefenseWeight) {
+					maxDefenseWeight = maxRowWeight;
 				}
 			}
 			
-			// Defense
-			if (defenseMoves.size() > 0) {
-				return defenseMoves.get(mRandom.nextInt(defenseMoves.size()));
+			if (maxDefenseWeight >= defenseMinWeight) {
+				ArrayList<int[]> defenseMoves = new ArrayList<int[]>(4);
+				for (int i = 0; i < mSize; i++) {
+					for (int j = 0; j < mSize; j++) {
+						if (playerWeights[i][j] >= maxDefenseWeight) {
+							defenseMoves.add(new int[] {i, j});
+						}
+					}
+				}
+				
+				// Defense
+				if (defenseMoves.size() > 0) {
+					return defenseMoves.get(mRandom.nextInt(defenseMoves.size()));
+				}
 			}
 		}
 		
