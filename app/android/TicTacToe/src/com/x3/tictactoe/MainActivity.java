@@ -29,8 +29,8 @@ public class MainActivity extends Activity implements Playground.GameListener {
         mPlaygroundView.setListener(new PlaygroundView.OnClickListener() {
 			
 			@Override
-			public void onClick(PlaygroundView view, int cellX, int cellY) {
-				onPlaygroundClick(cellX, cellY);
+			public void onClick(PlaygroundView view, int row, int column) {
+				onPlaygroundClick(row, column);
 			}
 		});
         
@@ -76,8 +76,8 @@ public class MainActivity extends Activity implements Playground.GameListener {
     	}
     }
     
-    private void onPlaygroundClick(int cellX, int cellY) {
-    	if (mPlayground.set(cellX, cellY, mValue)) {
+    private void onPlaygroundClick(int row, int column) {
+    	if (mPlayground.set(row, column, mValue)) {
 	    	mPlayground.aiPlay(Playground.O);
     	}
     }

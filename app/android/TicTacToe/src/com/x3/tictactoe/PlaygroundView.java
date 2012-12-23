@@ -58,14 +58,14 @@ public class PlaygroundView extends View implements Playground.DataListener {
 		invalidate();
 	}
 	
-	public void reload(int cellX, int cellY) {
+	public void reload(int row, int column) {
 		if (mPlayground != null) {
 			final int playgroundSize = mPlayground.getSize();
 			final int cellWidth = getMeasuredWidth() / playgroundSize;
 			final int cellHeight = getMeasuredHeight() / playgroundSize;
-			final int left = cellX * cellWidth, top = cellY * cellHeight;
+			final int left = column * cellWidth, top = row * cellHeight;
 			
-			invalidate(left, top, left + (cellX + 1) * cellWidth, top + (cellY + 1)
+			invalidate(left, top, left + (column + 1) * cellWidth, top + (row + 1)
 					* cellHeight);
 		} else {
 			invalidate();
@@ -87,14 +87,14 @@ public class PlaygroundView extends View implements Playground.DataListener {
 			final int iconOffsetX = (cellWidth - iconWidth) / 2;
 			final int iconOffsetY = (cellHeight - iconHeight) / 2;
 			
-			for (int i = 0; i < playgroundSize; i++) {
-				for (int j = 0; j < playgroundSize; j++) {
-					final int left = i * cellWidth, top = j * cellHeight;
+			for (int row = 0; row < playgroundSize; row++) {
+				for (int column = 0; column < playgroundSize; column++) {
+					final int left = column * cellWidth, top = row * cellHeight;
 					mCellDrawable.setBounds(left, top, left + cellWidth, top
 							+ cellHeight);
 					mCellDrawable.draw(canvas);
 					
-					final int cellValue = mPlayground.get(i, j);
+					final int cellValue = mPlayground.get(row, column);
 					
 					Drawable iconDrawable = null;
 					if (cellValue == Playground.X) {
@@ -130,11 +130,11 @@ public class PlaygroundView extends View implements Playground.DataListener {
 			
 			if (viewX >= 0 && viewX <= getMeasuredWidth() && viewY >= 0
 					&& viewY <= getMeasuredHeight()) {
-				final int cellX = (int) (event.getX() * playgroundSize / getMeasuredWidth());
-				final int cellY = (int) (event.getY() * playgroundSize / getMeasuredHeight());
+				final int row = (int) (event.getY() * playgroundSize / getMeasuredHeight());
+				final int column = (int) (event.getX() * playgroundSize / getMeasuredWidth());
 
 				if (mListener != null) {
-					mListener.onClick(this, cellX, cellY);
+					mListener.onClick(this, row, column);
 				}
 			}
 		}
@@ -149,8 +149,8 @@ public class PlaygroundView extends View implements Playground.DataListener {
 	}
 
 	@Override
-	public void onElementChanged(int x, int y) {
-		reload(x, y);
+	public void onElementChanged(int row, int column) {
+		reload(row, column);
 	}
 	
 }

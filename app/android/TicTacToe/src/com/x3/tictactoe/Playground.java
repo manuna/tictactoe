@@ -15,7 +15,7 @@ public class Playground {
 		
 		void onReset();
 		
-		void onElementChanged(int x, int y);
+		void onElementChanged(int row, int column);
 		
 	}
 	
@@ -27,6 +27,7 @@ public class Playground {
 	
 	final private static String TAG = Playground.class.getSimpleName();
 	
+	final public static int EMPTY = 0;
 	final public static int X = 1;
 	final public static int O = 2;
 	
@@ -34,6 +35,7 @@ public class Playground {
 	final public static int GAME_RESULT_X_WINS = X;
 	final public static int GAME_RESULT_O_WINS = O;
 	
+	final public static int AI_CELL_CLEAR = -1001;
 	final public static int AI_CELL_OCCUPIED = -1000;
 	final public static int AI_CELL_NO_WIN = -1;  
 	
@@ -41,7 +43,7 @@ public class Playground {
 	
 	private int mSize = 0;
 	private int mWinCellsCount = 0;
-	private int[] mField = null;
+	private int[][] mField = null;
 	private int[][] mAIWeightsX = null;
 	private int[][] mAIWeightsO = null;
 	private boolean mFinished = false;
@@ -54,8 +56,10 @@ public class Playground {
 	}
 	
 	public void reset() {
-		Arrays.fill(mField, 0);
-		mFreeCells = mField.length;
+		for (int i = 0; i < mField.length; i++) {
+			Arrays.fill(mField[i], 0);
+		}
+		mFreeCells = mField.length * mField[0].length;
 		mFinished = false;
 		if (mDataListener != null) {
 			mDataListener.onReset();
@@ -68,12 +72,12 @@ public class Playground {
 	
 	public void setSize(int size) {
 		mSize = size;
-		mField = new int[size * size];
+		mField = new int[size][size];
 		mAIWeightsX = new int[size][size];
 		mAIWeightsO = new int[size][size];
-		mFreeCells = mField.length;
+		mFreeCells = mField.length * mField[0].length;
 		mFinished = false;
-		mWinCellsCount = size;
+		mWinCellsCount = 3;
 		
 		if (mDataListener != null) {
 			mDataListener.onReset();
@@ -96,19 +100,18 @@ public class Playground {
 		mGameListeners.remove(listener);
 	}
 	
-	public int get(int x, int y) {
-		return mField[y * mSize + x];
+	public int get(int row, int column) {
+		return mField[row][column];
 	}
 	
-	public boolean set(int x, int y, int token) {
-		int index = y * mSize + x;
-		boolean succeeded = !mFinished && (mField[index] == 0); 
+	public boolean set(int row, int column, int token) {
+		boolean succeeded = !mFinished && (mField[row][column] == 0); 
 		if (succeeded) {
-			mField[y * mSize + x] = token;
+			mField[row][column] = token;
 			mFreeCells--;
 			
 			if (mDataListener != null) {
-				mDataListener.onElementChanged(x, y);
+				mDataListener.onElementChanged(row, column);
 			}
 			
 			checkWinner();
@@ -116,47 +119,103 @@ public class Playground {
 		return succeeded;
 	}
 	
+	private void processAI(int[] slice, int[] wslice, int token, int opponentToken) {
+		for (int j = 0; j < slice.length; j++) {
+			if (slice[j] != EMPTY) {
+				wslice[j] = AI_CELL_OCCUPIED;
+			}
+		}
+		
+		int start = 0, end = 0;
+		while (true) {
+			start = ArrayUtils.findFirstNotOf(slice, opponentToken, start);
+			if (start == -1) {
+				break;
+			}
+			
+			end = ArrayUtils.findFirstOf(slice, opponentToken, start);
+			int endIdx = end == -1 ? slice.length - 1 : end;
+			if (endIdx - start + 1 < mWinCellsCount) {
+				for (int j = start; j <= endIdx; j++) {
+					if (slice[j] == EMPTY && wslice[j] == AI_CELL_CLEAR) {
+						wslice[j] = AI_CELL_NO_WIN;
+					}
+				}
+			} else {
+				for (int j = start; j <= endIdx - mWinCellsCount + 1; j++) {
+					int tokenCount = ArrayUtils.countOf(slice, j, j
+							+ mWinCellsCount - 1, token);
+					for (int i = j; i < j + mWinCellsCount; i++) {
+						if (slice[i] == EMPTY) {
+							wslice[i] = Math.max(tokenCount, wslice[i]);
+						}
+					}
+				}
+			}
+			
+			if (end == -1 || end + 1 >= slice.length) {
+				break;
+			}
+			start = end + 1;
+		}
+	}
+	
+	private static void resetAIWeights(int[][] weights) {
+		for (int i = 0; i < weights.length; i++) {
+			for (int j = 0; j < weights[i].length; j++) {
+				weights[i][j] = AI_CELL_CLEAR;
+			}
+		}
+	}
+	
 	private void updateAIWeights(int token) {
 		int[][] weights = (token == X) ? mAIWeightsX : mAIWeightsO;
 		int opponentToken = (token == X) ? O : X;
+		int[] slice = new int[weights.length];
+		int[] wslice = new int[weights.length];
+		
+		resetAIWeights(weights);
 		
 		// Update row weights
 		for (int i = 0; i < mSize; i++) {
-			int count = tokenCountInRow(i, token);
-			int opponentCount = tokenCountInRow(i, opponentToken);
-			int weight = (opponentCount == 0) ? count : AI_CELL_NO_WIN;
-			for (int j = 0; j < mSize; j++) {
-				weights[j][i] = (get(j, i) == 0) ? weight : AI_CELL_OCCUPIED;
-			}
+			ArrayUtils.rowSlice(mField, i, slice);
+			ArrayUtils.rowSlice(weights, i, wslice);
+			processAI(slice, wslice, token, opponentToken);
+			ArrayUtils.applyRowSlice(weights, i, wslice);
 		}
 		
 		// Update column weights
 		for (int i = 0; i < mSize; i++) {
-			int count = tokenCountInColumn(i, token);
-			int opponentCount = tokenCountInColumn(i, opponentToken);
-			int weight = (opponentCount == 0) ? count : AI_CELL_NO_WIN;
-			for (int j = 0; j < mSize; j++) {
-				// Put maximum value
-				weights[i][j] = (get(i, j) == 0) ? Math.max(weight,
-						weights[i][j]) : AI_CELL_OCCUPIED;
-			}
+			ArrayUtils.columnSlice(mField, i, slice);
+			ArrayUtils.columnSlice(weights, i, wslice);
+			processAI(slice, wslice, token, opponentToken);
+			ArrayUtils.applyColumnSlice(weights, i, wslice);
 		}
 		
-		int mainDiagCount = tokenCountInDiag(true, token);
-		int opponentMainDiagCount = tokenCountInDiag(true, opponentToken);
-		int mainDiagWeight = (opponentMainDiagCount == 0) ? mainDiagCount : AI_CELL_NO_WIN;
-		for (int i = 0; i < mSize; i++) {
-			weights[i][i] = (get(i, i) == 0) ? Math.max(mainDiagWeight,
-					weights[i][i]) : AI_CELL_OCCUPIED;
+		// Update diagonal weights
+		for (int i = 0; i <= mSize - mWinCellsCount; i++) {
+			ArrayUtils.diagSlice(mField, i, 0, true, slice);
+			ArrayUtils.diagSlice(weights, i, 0, true, wslice);
+			processAI(slice, wslice, token, opponentToken);
+			ArrayUtils.applyDiagSlice(weights, i, 0, true, wslice);
+			
+			ArrayUtils.diagSlice(mField, i, mSize - 1, false, slice);
+			ArrayUtils.diagSlice(weights, i, mSize - 1, false, wslice);
+			processAI(slice, wslice, token, opponentToken);
+			ArrayUtils.applyDiagSlice(weights, i, mSize - 1, false, wslice);
 		}
 		
-		int diagCount = tokenCountInDiag(false, token);
-		int opponentDiagCount = tokenCountInDiag(true, opponentToken);
-		int diagWeight = (opponentDiagCount == 0) ? diagCount : AI_CELL_NO_WIN;
-		for (int i = 0; i < mSize; i++) {
-			int col = mSize - i - 1;
-			weights[col][i] = (get(col, i) == 0) ? Math.max(diagWeight,
-					weights[col][i]) : AI_CELL_OCCUPIED;
+		// Update diagonal weights
+		for (int i = 0; i <= mSize - mWinCellsCount; i++) {
+			ArrayUtils.diagSlice(mField, 0, i, true, slice);
+			ArrayUtils.diagSlice(weights, 0, i, true, wslice);
+			processAI(slice, wslice, token, opponentToken);
+			ArrayUtils.applyDiagSlice(weights, 0, i, true, wslice);
+			
+			ArrayUtils.diagSlice(mField, 0, mSize - i - 1, false, slice);
+			ArrayUtils.diagSlice(weights, 0, mSize - i - 1, false, wslice);
+			processAI(slice, wslice, token, opponentToken);
+			ArrayUtils.applyDiagSlice(weights, 0, mSize - i - 1, false, wslice);
 		}
 		
 		Log.v(TAG,
@@ -221,53 +280,55 @@ public class Playground {
 		}
 	}
 	
-	private int tokenCountInRow(int row, int token) {
-		int count = 0;
-		for (int i = 0; i < mSize; i++) {
-			if (get(i, row) == token) {
-				count++;
-			}
-		}
-		return count;
-	}
-	
-	private int tokenCountInColumn(int column, int token) {
-		int count = 0;
-		for (int i = 0; i < mSize; i++) {
-			if (get(column, i) == token) {
-				count++;
-			}
-		}
-		return count;
-	}
-	
-	private int tokenCountInDiag(boolean mainDiag, int token) {
-		int count = 0;
-		for (int i = 0; i < mSize; i++) {
-			int col = mainDiag ? i : (mSize - i - 1);
-			if (get(col, i) == token) {
-				count++;
-			}
-		}
-		return count;
-	}
-	
 	private boolean isWinner(int token) {
 		boolean isWinner = false;
+		int[] slice = new int[mField.length];
 		
 		// Check diagonals
-		isWinner = (tokenCountInDiag(true, token) == mWinCellsCount)
-				|| (tokenCountInDiag(false, token) == mWinCellsCount);
+		// T - -
+		// T T -
+		// T T T
+		for (int i = 0; i <= mSize - mWinCellsCount && !isWinner; i++) {
+			ArrayUtils.diagSlice(mField, i, 0, true, slice);
+			isWinner = ArrayUtils.maxRange(slice, 0, mSize - i - 1, token) >= mWinCellsCount;
+		}
+		
+		// - - T
+		// - T T
+		// T T T
+		for (int i = 0; i <= mSize - mWinCellsCount && !isWinner; i++) {
+			ArrayUtils.diagSlice(mField, i, mSize - 1, false, slice);
+			isWinner = ArrayUtils.maxRange(slice, 0, mSize - i - 1, token) >= mWinCellsCount;
+		}
+		
+		// - T T
+		// - - T
+		// - - -
+		for (int i = 1; i <= mSize - mWinCellsCount && !isWinner; i++) {
+			ArrayUtils.diagSlice(mField, 0, i, true, slice);
+			isWinner = ArrayUtils.maxRange(slice, 0, mSize - i - 1, token) >= mWinCellsCount;
+		}
+		
+		// T T -
+		// T - -
+		// - - -
+		for (int i = 1; i <= mSize - mWinCellsCount && !isWinner; i++) {
+			ArrayUtils.diagSlice(mField, 0, mSize - i - 1, false, slice);
+			isWinner = ArrayUtils.maxRange(slice, 0, mSize - i - 1, token) >= mWinCellsCount;
+		}
 		
 		// Check rows
-		for (int i = 0; i < mWinCellsCount && !isWinner; i++) {
-			isWinner = (tokenCountInRow(i, token) == mWinCellsCount);
+		for (int i = 0; i < mSize && !isWinner; i++) {
+			ArrayUtils.rowSlice(mField, i, slice);
+			isWinner = ArrayUtils.maxRange(slice, token) >= mWinCellsCount;
 		}
 		
 		// Check columns
-		for (int i = 0; i < mWinCellsCount && !isWinner; i++) {
-			isWinner = (tokenCountInColumn(i, token) == mWinCellsCount);
+		for (int i = 0; i < mSize && !isWinner; i++) {
+			ArrayUtils.columnSlice(mField, i, slice);
+			isWinner = ArrayUtils.maxRange(slice, token) >= mWinCellsCount;
 		}
+		
 		return isWinner;
 	}
 	
