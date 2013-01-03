@@ -297,17 +297,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="261.46098"
-     inkscape:cy="309.33132"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="133.90016"
+     inkscape:cy="292.34315"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer3"
      showgrid="false"
      inkscape:window-width="1780"
      inkscape:window-height="1061"
      inkscape:window-x="136"
      inkscape:window-y="-4"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:showpageshadow="true" />
   <metadata
      id="metadata4377">
     <rdf:RDF>
@@ -316,7 +317,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -324,7 +325,8 @@
      inkscape:label="Background"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-572.36218)">
+     transform="translate(0,-572.36218)"
+     style="display:inline">
     <rect
        style="fill:#6c5d53;stroke:none"
        id="rect4380"
@@ -332,7 +334,7 @@
        height="455"
        x="0"
        y="597.36218"
-       inkscape:export-filename="E:\Projects\github\tictactoe\graphics\png\background.png"
+       inkscape:export-filename="E:\Projects\github\tictactoe\graphics\png\android\layout\drawable-mdpi\background.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -396,7 +398,7 @@
     <g
        id="g3933">
       <g
-         style="fill:#000000;filter:url(#filter3929);opacity:0.7"
+         style="opacity:0.7;fill:#000000;filter:url(#filter3929)"
          id="g3915"
          inkscape:export-filename="E:\Projects\github\tictactoe\graphics\png\background.png"
          inkscape:export-xdpi="90"
@@ -783,38 +785,23 @@
        inkscape:connector-curvature="0" />
     <path
        inkscape:connector-curvature="0"
-       id="path4331"
-       d="m 5.5000631,731.86218 308.9998769,0"
-       style="opacity:0.5;fill:#005522;stroke:#93ac93;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
-    <path
-       style="opacity:0.5;fill:#005522;stroke:#93ac93;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 5.5000631,766.86218 308.9998769,0"
-       id="path4333"
-       inkscape:connector-curvature="0" />
-    <path
-       inkscape:connector-curvature="0"
        id="path4335"
-       d="m 5.5000631,801.86218 308.9998769,0"
+       d="m 5.5000631,752.86218 308.9998769,0"
        style="opacity:0.5;fill:#005522;stroke:#93ac93;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
     <path
        style="opacity:0.5;fill:#005522;stroke:#93ac93;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 5.5000631,836.86218 308.9998769,0"
+       d="m 5.5000631,808.86218 308.9998769,0"
        id="path4337"
        inkscape:connector-curvature="0" />
     <path
        inkscape:connector-curvature="0"
        id="path4339"
-       d="m 5.5000631,871.86218 308.9998769,0"
+       d="m 5.5000631,864.86218 308.9998769,0"
        style="opacity:0.5;fill:#005522;stroke:#93ac93;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
-    <path
-       style="opacity:0.5;fill:#005522;stroke:#93ac93;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 5.5000631,906.86218 308.9998769,0"
-       id="path4341"
-       inkscape:connector-curvature="0" />
     <path
        inkscape:connector-curvature="0"
        id="path4343"
-       d="m 5.5000631,941.86218 308.9998769,0"
+       d="m 5.5000631,920.86218 308.9998769,0"
        style="opacity:0.5;fill:#005522;stroke:#93ac93;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
     <path
        style="opacity:0.5;fill:#005522;stroke:#93ac93;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
@@ -826,12 +813,12 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Menu"
-     style="display:inline">
+     style="display:none">
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2c89a0;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
        x="82.234375"
-       y="220.77344"
+       y="217.27344"
        id="text4513"
        sodipodi:linespacing="125%"
        inkscape:export-filename="E:\Projects\github\tictactoe\graphics\png\background.png"
@@ -840,37 +827,37 @@
          sodipodi:role="line"
          id="tspan4515"
          x="82.234375"
-         y="220.77344">One Player</tspan></text>
+         y="217.27344">One Player</tspan></text>
     <rect
-       style="fill:none;stroke:#4a98a7;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#4a98a7;stroke-width:1.99999976;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect3106"
-       width="186.00002"
+       width="208"
        height="48"
-       x="67.257805"
-       y="188"
+       x="56.09375"
+       y="185"
        ry="2"
-       rx="2" />
+       rx="1.9999999" />
     <text
        sodipodi:linespacing="125%"
        id="text4517"
-       y="290.77344"
+       y="273.17188"
        x="72.421875"
-       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d35f5f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#e59c8f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
        xml:space="preserve"
        inkscape:export-filename="E:\Projects\github\tictactoe\graphics\png\background.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"><tspan
-         y="290.77344"
+         y="273.17188"
          x="72.421875"
          id="tspan4519"
          sodipodi:role="line">Two Players</tspan></text>
     <rect
-       y="258"
-       x="63.734985"
+       y="241"
+       x="56.093758"
        height="48"
-       width="192.71753"
+       width="207.99998"
        id="rect3108"
-       style="fill:none;stroke:#d35f5f;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#e59c8f;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        ry="2"
        rx="2" />
     <rect
@@ -929,35 +916,35 @@
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
        x="22.207031"
-       y="147.04834"
+       y="158"
        id="text4004"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4006"
          x="22.207031"
-         y="147.04834"
+         y="158"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#6d6f5f;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">PLAYER 1:</tspan></text>
     <path
        style="fill:none;stroke:#acaf97;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 97,153 0,4 208,0 0,-4"
+       d="m 97,172 0,4 208,0 0,-4"
        id="path4008"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
     <text
        sodipodi:linespacing="125%"
        id="text4010"
-       y="182.04834"
+       y="214"
        x="22.207031"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
        xml:space="preserve"><tspan
-         y="182.04834"
+         y="214"
          x="22.207031"
          id="tspan4012"
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#6d6f5f;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">PLAYER 2:</tspan></text>
     <g
        id="g4041"
-       transform="translate(83,-32.52515)">
+       transform="translate(83,-22.025151)">
       <text
          sodipodi:linespacing="125%"
          id="text4016"
@@ -979,34 +966,34 @@
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
        x="53.207031"
-       y="286.97656"
+       y="325.85645"
        id="text4037"
        sodipodi:linespacing="125%"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#6d6f5f;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk"
          sodipodi:role="line"
          id="tspan4039"
          x="53.207031"
-         y="286.97656">BOARD:</tspan></text>
+         y="325.85645">BOARD:</tspan></text>
     <path
        sodipodi:nodetypes="cccc"
        inkscape:connector-curvature="0"
        id="path4048"
-       d="m 97,188 0,4 208,0 0,-4"
+       d="m 97,228 0,4 208,0 0,-4"
        style="fill:none;stroke:#acaf97;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
        x="103.70605"
-       y="182.26025"
+       y="213.76025"
        id="text4050"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4052"
          x="103.70605"
-         y="182.26025">Android</tspan></text>
+         y="213.76025">Android</tspan></text>
     <g
        id="g4257"
-       transform="translate(0,-0.5)">
+       transform="translate(0,38)">
       <g
          id="g4270"
          transform="translate(0,-3)">
@@ -1053,18 +1040,18 @@
     <text
        sodipodi:linespacing="125%"
        id="text4080"
-       y="321.97656"
+       y="381.85645"
        x="22.207031"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
        xml:space="preserve"><tspan
-         y="321.97656"
+         y="381.85645"
          x="22.207031"
          id="tspan4082"
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#6d6f5f;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">DIFFICULTY:</tspan></text>
     <g
        id="g4246"
-       transform="translate(0,-3.5)">
+       transform="translate(0,56)">
       <rect
          style="fill:none;stroke:#6d6f5f;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          id="rect4094"
@@ -1174,8 +1161,8 @@
          sodipodi:nodetypes="ccc" />
     </g>
     <path
-       style="fill:none;stroke:#d7dabc;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 156.66064,406.81445 0,51.26524"
+       style="fill:none;stroke:#d7dabc;stroke-width:1.99999988;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 157,406.99004 157,458"
        id="path4309"
        inkscape:connector-curvature="0" />
   </g>
@@ -1183,7 +1170,7 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Playground"
-     style="display:none">
+     style="display:inline">
     <path
        style="fill:none;stroke:#46483d;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="M 115,130.99262 115,399"
@@ -1239,19 +1226,19 @@
          id="tspan3909"
          x="13.505859"
          y="112.15918"
-         style="font-size:18px;fill:#000080;fill-opacity:1">Player 1: 0</tspan></text>
+         style="font-size:18px;fill:#000080;fill-opacity:1">PLAYER 1: 0</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text3911"
        y="112.15918"
-       x="216.50586"
+       x="206.50586"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#aa0000;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
        xml:space="preserve"><tspan
          style="font-size:18px;fill:#aa0000;fill-opacity:1"
          y="112.15918"
-         x="216.50586"
+         x="206.50586"
          id="tspan3913"
-         sodipodi:role="line">Player 2: 0</tspan></text>
+         sodipodi:role="line">PLAYER 2: 0</tspan></text>
     <g
        transform="translate(35.876775,47)"
        id="g4362">

@@ -5,12 +5,17 @@
     <string name="background_desc">Background Image</string>
     <string name="title_activity_main">Tic Tac Toe Classic</string>
     <string name="restart_game">Restart</string>
-    <string name="button_text_color">#FFFFFF</string>
-    <string name="button_shadow_color">#000000</string>
     <string name="button_3x3">3x3</string>
     <string name="button_5x5">5x5</string>
     <string name="x_wins">X wins</string>
     <string name="o_wins">O wins</string>
     <string name="game_draw">Draw</string>
-
+    <string name="one_player">One Player</string>
+    <string name="two_players">Two Players</string>
+    <string name="player_1">PLAYER 1:</string>
+    <string name="player_2">PLAYER 2:</string>
+	<string name="board">BOARD:</string>
+	<string name="difficulty">DIFFICULTY:</string>
+	<string name="back">BACK</string>
+	<string name="start">START</string>
 </resources>
