@@ -6,46 +6,24 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:src="@drawable/background"
         android:contentDescription="@string/background_desc" />
     
-    <LinearLayout android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="18dp">
-        
-        <Button android:id="@+id/button_3x3"
-            android:onClick="on3x3Clicked"
-            android:background="@drawable/left_segment_selector"
-            android:text="@string/button_3x3"
-            style="@style/ButtonStyle" />
-        
-        <ImageView android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/segment_separator"
-            android:contentDescription="@string/no_desc" />
-        
-        <Button android:id="@+id/button_5x5"
-            android:onClick="on5x5Clicked"
-            android:background="@drawable/right_segment_selector"
-            android:text="@string/button_5x5"
-	        style="@style/ButtonStyle" />
-    </LinearLayout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fragment_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp" />
 
-    <Button
-        android:id="@+id/restart_button"
-        android:onClick="onRestartGame"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp"
-        android:minWidth="200dp"
-        android:background="@drawable/button_selector"
-        android:text="@string/restart_game"
-        style="@style/ButtonStyle" />
-    
-    <com.x3.tictactoe.PlaygroundView android:id="@+id/playground"
-        style="@style/PlaygroundStyle" />
+    <fragment android:name="com.x3.tictactoe.NavMenuFragment"
+        android:id="@+id/nav_menu"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="21dp"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
