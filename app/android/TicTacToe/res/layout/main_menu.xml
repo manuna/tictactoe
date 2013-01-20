@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
-    <Button android:id="@+id/one_player_btn"
-            android:onClick="onOnePlayerClicked"
-            android:text="@string/one_player"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="246dp"
-            style="@style/MenuButton"/>
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="5" >
     
+    <View android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+        
+    <Button android:id="@+id/one_player_btn"
+	    android:onClick="onOnePlayerClicked"
+	    android:text="@string/one_player"
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+        android:layout_weight="1"
+	    style="@style/MenuButton"/>
+        
     <Button android:id="@+id/two_players_btn"
-            android:onClick="onTwoPlayersClicked"
-            android:text="@string/two_players"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="190dp"
-            style="@style/MenuButton"/>
+	    android:onClick="onTwoPlayersClicked"
+	    android:text="@string/two_players"
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+       	android:layout_weight="1"
+	    style="@style/MenuButton"/>
 
-</RelativeLayout>
+</LinearLayout>
