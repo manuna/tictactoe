@@ -1,45 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-    <TextView android:text="@string/player_1"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="322dp"
-        android:layout_marginLeft="23dp"
-        style="@style/OptionsLabel" />
-    <EditText android:id="@+id/player_1_name"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="303dp"
-        android:layout_marginLeft="96dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:inputType="text" />
+    <View android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="75" />
     
-    <TextView android:text="@string/player_2"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="266dp"
-        android:layout_marginLeft="23dp"
-        style="@style/OptionsLabel" />
-    <EditText android:id="@+id/player_2_name"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="247dp"
-        android:layout_marginLeft="96dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:inputType="text" />
+    <RelativeLayout android:layout_width="match_parent"
+	    android:layout_height="0dp"
+        android:layout_weight="56" >
+        
+        <TextView android:id="@+id/player_1_label"
+            android:text="@string/player_1"
+	        style="@style/OptionsLabel"
+	        android:layout_centerVertical="true"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_marginLeft="18dp" />
+	    <EditText android:id="@+id/player_1_name"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_toRightOf="@id/player_1_label"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginRight="10dp"
+	        android:inputType="text" />
+    </RelativeLayout>
     
-    <TextView android:text="@string/board"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="154dp"
-        android:layout_marginLeft="54dp"
-        style="@style/OptionsLabel" />
-    <TextView android:text="@string/difficulty"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="98dp"
-        android:layout_marginLeft="23dp"
-        style="@style/OptionsLabel" />
+    <RelativeLayout android:layout_width="match_parent"
+	    android:layout_height="0dp"
+        android:layout_weight="56">
+	    
+        <TextView android:id="@+id/player_2_label"
+            android:text="@string/player_2"
+	        style="@style/OptionsLabel"
+	        android:layout_centerVertical="true"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_marginLeft="18dp" />
+	    <EditText android:id="@+id/player_2_name"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_toRightOf="@id/player_2_label"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginRight="10dp"
+	        android:inputType="text" />        
+    </RelativeLayout>
+    
+    <View android:layout_width="match_parent"
+	    android:layout_height="0dp"
+        android:layout_weight="56" />
+    
+    <RelativeLayout android:layout_width="match_parent"
+	    android:layout_height="0dp"
+        android:layout_weight="56">
+        
+        <TextView android:id="@+id/difficulty_placeholder"
+            android:text="@string/difficulty"
+	        style="@style/OptionsLabel"
+	        android:layout_centerVertical="true"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_marginLeft="18dp"
+	        android:visibility="invisible" />
+        
+        <TextView android:text="@string/board"
+	        style="@style/OptionsLabel"
+	        android:layout_centerVertical="true"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@id/difficulty_placeholder" />
+        
+        <Button android:id="@+id/board_5x5_btn"
+            android:text="5x5"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp" />
+        <Button android:id="@+id/board_3x3_btn"
+            android:text="3x3"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/board_5x5_btn" />
+        
+    </RelativeLayout>
+    
+    <RelativeLayout android:layout_width="match_parent"
+	    android:layout_height="0dp"
+        android:layout_weight="56">
+        
+        <TextView android:text="@string/difficulty"
+	        style="@style/OptionsLabel"
+	        android:layout_centerVertical="true"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_marginLeft="18dp" />
+        
+        <Button android:id="@+id/hard_mode_btn"
+            android:text="HARD"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp" />        
+        <Button android:id="@+id/normal_mode_btn"
+            android:text="NORMAL"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/hard_mode_btn" />
+        <Button android:id="@+id/easy_mode_btn"
+            android:text="EASY"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/normal_mode_btn" />
+    </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>
