@@ -2,27 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="5" >
+    android:orientation="vertical" >
     
     <View android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
-        
-    <Button android:id="@+id/one_player_btn"
-	    android:onClick="onOnePlayerClicked"
-	    android:text="@string/one_player"
-	    android:layout_width="match_parent"
+        android:layout_weight="131.5" />
+     
+    <RelativeLayout android:layout_width="match_parent"
 	    android:layout_height="0dp"
-        android:layout_weight="1"
-	    style="@style/MenuButton"/>
+        android:layout_weight="56" >
         
-    <Button android:id="@+id/two_players_btn"
-	    android:onClick="onTwoPlayersClicked"
-	    android:text="@string/two_players"
-	    android:layout_width="match_parent"
+        <Button android:id="@+id/one_player_btn"
+		    android:onClick="onOnePlayerClicked"
+		    android:text="@string/one_player"
+	        android:background="@drawable/one_player_btn_bg"
+	        android:textColor="@drawable/one_player_btn_text_color"
+	        style="@style/MenuButton" />
+    </RelativeLayout>
+    
+    <RelativeLayout android:layout_width="match_parent"
 	    android:layout_height="0dp"
-       	android:layout_weight="1"
-	    style="@style/MenuButton"/>
+       	android:layout_weight="56" >
+        
+        <Button android:id="@+id/two_players_btn"
+		    android:onClick="onTwoPlayersClicked"
+		    android:text="@string/two_players"
+	       	android:background="@drawable/two_players_btn_bg"
+	       	android:textColor="@drawable/two_players_btn_text_color"
+	       	style="@style/MenuButton" />
+    </RelativeLayout>    
+    
+    <View android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="111.5" />
 
 </LinearLayout>

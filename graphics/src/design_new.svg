@@ -289,6 +289,24 @@
        x2="161.85742"
        y2="123.62638"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3826"
+       id="linearGradient3974"
+       gradientUnits="userSpaceOnUse"
+       x1="148.94673"
+       y1="1032.3114"
+       x2="148.94673"
+       y2="1042.9187" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3826"
+       id="linearGradient3977"
+       gradientUnits="userSpaceOnUse"
+       x1="148.94673"
+       y1="1032.3114"
+       x2="148.94673"
+       y2="1042.9187" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -298,10 +316,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="133.90016"
-     inkscape:cy="292.34315"
+     inkscape:cx="138.04163"
+     inkscape:cy="250.91179"
      inkscape:document-units="px"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer5"
      showgrid="false"
      inkscape:window-width="1780"
      inkscape:window-height="1061"
@@ -317,7 +335,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -396,47 +414,38 @@
          style="fill:#3a93b3;fill-opacity:1;stroke:none" />
     </g>
     <g
-       id="g3933">
-      <g
-         style="opacity:0.7;fill:#000000;filter:url(#filter3929)"
-         id="g3915"
-         inkscape:export-filename="E:\Projects\github\tictactoe\graphics\png\background.png"
-         inkscape:export-xdpi="90"
-         inkscape:export-ydpi="90">
-        <rect
-           y="622.36218"
-           x="5"
-           height="410"
-           width="310"
-           id="rect3917"
-           style="fill:#000000;fill-opacity:1;stroke:none" />
-        <path
-           sodipodi:nodetypes="ccccc"
-           inkscape:connector-curvature="0"
-           id="path3919"
-           d="m 5,1032.3622 310,0 -3.53553,10 -302.9289361,0 z"
-           style="fill:#000000;fill-opacity:1;stroke:none" />
-      </g>
-      <g
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="E:\Projects\github\tictactoe\graphics\png\background.png"
-         id="g4358">
-        <rect
-           style="fill:#fff6d5;fill-opacity:1;stroke:none"
-           id="rect3054"
-           width="310"
-           height="410"
-           x="5"
-           y="622.36218" />
-        <path
-           style="fill:url(#linearGradient3832);fill-opacity:1;stroke:none"
-           d="m 5,1032.3622 310,0 -3.53553,10 -302.9289361,0 z"
-           id="rect3056"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="ccccc" />
-      </g>
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="E:\Projects\github\tictactoe\graphics\png\background.png"
+       id="g3915"
+       style="opacity:0.7;fill:#000000;filter:url(#filter3929)">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:none"
+         id="rect3917"
+         width="310"
+         height="410"
+         x="5"
+         y="622.36218" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:none"
+         d="m 5,1032.3622 310,0 -3.53553,10 -302.9289361,0 z"
+         id="path3919"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
     </g>
+    <rect
+       style="fill:#fff6d5;fill-opacity:1;stroke:none"
+       id="rect3054"
+       width="310"
+       height="410"
+       x="5"
+       y="622.36218" />
+    <path
+       style="fill:url(#linearGradient3977);fill-opacity:1;stroke:none"
+       d="m 5,1032.3622 310,0 -3.53553,10 -302.9289361,0 z"
+       id="rect3056"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
     <g
        id="g4277"
        inkscape:export-filename="E:\Projects\github\tictactoe\graphics\png\background.png"
@@ -906,12 +915,48 @@
          id="tspan3979"
          x="374.42188"
          y="292.17188">Two Players</tspan></text>
+    <rect
+       rx="1.9999999"
+       ry="2"
+       y="185"
+       x="-237.40623"
+       height="20"
+       width="20"
+       id="rect3189"
+       style="fill:none;stroke:#4a98a7;stroke-width:1.99999976;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <rect
+       rx="2"
+       ry="2"
+       style="fill:none;stroke:#e59c8f;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3191"
+       width="20"
+       height="20"
+       x="-237.35555"
+       y="223.67589" />
+    <rect
+       rx="2"
+       ry="2"
+       style="fill:#2c89a0;fill-opacity:1;stroke:#2c89a0;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3963"
+       width="20"
+       height="20"
+       x="-199.40623"
+       y="184.89844" />
+    <rect
+       ry="2"
+       rx="2"
+       y="222.00757"
+       x="-199.65753"
+       height="20"
+       width="20"
+       id="rect3966"
+       style="fill:#e59c8f;fill-opacity:1;stroke:#e59c8f;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Game Options"
-     style="display:none">
+     style="display:inline">
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
@@ -1115,7 +1160,7 @@
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="Nav Menu"
-     style="display:none">
+     style="display:inline">
     <g
        id="g4299"
        transform="translate(35.876775,47)">
@@ -1170,7 +1215,7 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Playground"
-     style="display:inline">
+     style="display:none">
     <path
        style="fill:none;stroke:#46483d;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="M 115,130.99262 115,399"
