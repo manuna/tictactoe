@@ -56,6 +56,41 @@
 	    android:layout_height="0dp"
         android:layout_weight="56" />
     
+    <RelativeLayout android:id="@+id/difficulty_option_group"
+        android:layout_width="match_parent"
+	    android:layout_height="0dp"
+        android:layout_weight="56"
+        android:visibility="invisible" >
+        
+        <TextView android:text="@string/difficulty"
+	        style="@style/OptionsLabel"
+	        android:layout_centerVertical="true"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_marginLeft="18dp" />
+        
+        <Button android:id="@+id/hard_mode_btn"
+            android:text="HARD"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp" />        
+        <Button android:id="@+id/normal_mode_btn"
+            android:text="NORMAL"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/hard_mode_btn" />
+        <Button android:id="@+id/easy_mode_btn"
+            android:text="EASY"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/normal_mode_btn" />
+    </RelativeLayout>
+    
     <RelativeLayout android:layout_width="match_parent"
 	    android:layout_height="0dp"
         android:layout_weight="56">
@@ -91,39 +126,6 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/board_5x5_btn" />
         
-    </RelativeLayout>
-    
-    <RelativeLayout android:layout_width="match_parent"
-	    android:layout_height="0dp"
-        android:layout_weight="56">
-        
-        <TextView android:text="@string/difficulty"
-	        style="@style/OptionsLabel"
-	        android:layout_centerVertical="true"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentLeft="true"
-	        android:layout_marginLeft="18dp" />
-        
-        <Button android:id="@+id/hard_mode_btn"
-            android:text="HARD"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp" />        
-        <Button android:id="@+id/normal_mode_btn"
-            android:text="NORMAL"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/hard_mode_btn" />
-        <Button android:id="@+id/easy_mode_btn"
-            android:text="EASY"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/normal_mode_btn" />
     </RelativeLayout>
 
 </LinearLayout>

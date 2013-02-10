@@ -10,11 +10,31 @@ import android.view.View;
 public class MainActivity extends FragmentActivity implements Playground.GameListener {
 	
 	private final static String TAG = "MainActivity";
+	private final static String GAME_OPTIONS_FRAGMENT = "GameOptions";
+	private final static String GAMEBOARD_FRAGMENT = "GameBoard";
+	
+	private NavMenuFragment mNavMenuFragment = null;
+	private View mNavMenuRoot = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        FragmentManager fragmentMgr = getSupportFragmentManager();
+		fragmentMgr
+				.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+
+					@Override
+					public void onBackStackChanged() {
+						MainActivity.this.onBackStackChanged();
+					}
+				});
+        
+        mNavMenuRoot = findViewById(R.id.nav_menu_root);
+		mNavMenuFragment = (NavMenuFragment) fragmentMgr
+				.findFragmentById(R.id.nav_menu);
+		
         setupMainMenu();
     }
 
@@ -56,10 +76,14 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
     private void setupMainMenu() {
     	FragmentManager fragmentMgr = getSupportFragmentManager();
 		fragmentMgr.beginTransaction()
-				.add(R.id.fragment_root, new MainMenuFragment()).commit();
+				.add(R.id.fragment_root, new MainMenuFragment())
+				.commit();
     }
     
     private void showGameOptions(boolean showDifficulty) {
+    	GameOptionsFragment fragment = new GameOptionsFragment();
+    	fragment.setDifficultyOptionVisible(showDifficulty);
+    	
     	FragmentManager fragmentMgr = getSupportFragmentManager();
 		fragmentMgr
 				.beginTransaction()
@@ -67,8 +91,8 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
 						R.anim.slide_out_left,
 						android.R.anim.slide_in_left,
 						android.R.anim.slide_out_right)
-				.replace(R.id.fragment_root, new GameOptionsFragment())
-				.addToBackStack(null).commit();
+				.replace(R.id.fragment_root, fragment)
+				.addToBackStack(GAME_OPTIONS_FRAGMENT).commit();
     }
     
     private void showGameBoard() {
@@ -80,7 +104,33 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
 						android.R.anim.slide_in_left,
 						android.R.anim.slide_out_right)
 				.replace(R.id.fragment_root, new GameBoardFragment())
-				.addToBackStack(null).commit();
+				.addToBackStack(GAMEBOARD_FRAGMENT).commit();
+    }
+    
+    private void showNavMenu(boolean showNavbar) {
+    	mNavMenuRoot.setVisibility(showNavbar ? View.VISIBLE : View.INVISIBLE);
+    }
+    
+    private void showStartButton(boolean showStartButton) {
+    	mNavMenuFragment.setStartVisible(showStartButton);
+    }
+    
+    private void onBackStackChanged() {
+    	FragmentManager fragmentMgr = getSupportFragmentManager();
+    	int backStackEntryCount = fragmentMgr.getBackStackEntryCount();
+    	
+    	// Hide nav menu when main menu is shown
+    	showNavMenu(backStackEntryCount != 0);
+    	
+    	// Hide start button when game board is shown
+    	boolean startButtonVisible = true;
+    	if (backStackEntryCount > 0) {
+			FragmentManager.BackStackEntry topEntry = fragmentMgr
+					.getBackStackEntryAt(backStackEntryCount - 1);
+			startButtonVisible = !topEntry.getName().equals(GAMEBOARD_FRAGMENT);
+    	}
+    	
+    	showStartButton(startButtonVisible);
     }
 
 	@Override

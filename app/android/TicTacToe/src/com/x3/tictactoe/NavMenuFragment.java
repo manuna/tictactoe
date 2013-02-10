@@ -8,10 +8,32 @@ import android.view.ViewGroup;
 
 public class NavMenuFragment extends Fragment {
 	
+	private boolean mStartVisible = true;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.nav_menu, container, false);
+		View view = inflater.inflate(R.layout.nav_menu, container, false);
+		updateUI(view);
+		return view;
+	}
+	
+	public boolean isStartVisible() {
+		return mStartVisible;
+	}
+	
+	public void setStartVisible(boolean startVisible) {
+		mStartVisible = startVisible;
+		updateUI(getView());
+	}
+	
+	private void updateUI(View view)
+	{
+		if (view != null) {
+			View start_button = view.findViewById(R.id.start_button);
+			start_button.setVisibility(mStartVisible ? View.VISIBLE
+					: View.INVISIBLE);
+		}
 	}
 
 }
