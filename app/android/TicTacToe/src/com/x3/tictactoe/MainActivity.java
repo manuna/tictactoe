@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.View;
 import android.view.animation.Animation;
@@ -17,8 +18,10 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
 	
 	private NavMenuFragment mNavMenuFragment = null;
 	private View mNavMenuRoot = null;
+	private GameOptions mGameOptions = new GameOptions();
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -39,6 +42,14 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
 				.findFragmentById(R.id.nav_menu);
 		
         setupMainMenu();
+        
+        Log.i(TAG, "Starting main activity...");
+        
+		Display display = getWindowManager().getDefaultDisplay();
+		int displayWidth = display.getWidth();
+		int displayHeight = display.getHeight();
+		Log.i(TAG, String.format("Screen size: (%dx%d)", displayWidth,
+				displayHeight));
     }
 
     @Override
@@ -49,12 +60,6 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
     
     public void onOnePlayerClicked(View view) {
     	Log.v(TAG, "One player game choosen");
-    	
-    	View fragmentRoot = findViewById(R.id.fragment_root);
-        int width = fragmentRoot.getWidth();
-        int height = fragmentRoot.getHeight();
-        Log.v(TAG, "Width: " + width + ", Height: " + height);
-    	
     	showGameOptions(true);
     }
     
@@ -74,6 +79,31 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
     public void onStartClicked(View view) {
     	Log.v(TAG, "Start game clicked");
     	showGameBoard();
+    }
+    
+    public void onHardSelected(View view) {
+    	Log.v(TAG, "Hard difficulty selected");
+    	mGameOptions.setDifficulty(GameOptions.DIFFICULTY_HARD);
+    }
+    
+    public void onNormalSelected(View view) {
+    	Log.v(TAG, "Normal difficulty selected");
+    	mGameOptions.setDifficulty(GameOptions.DIFFICULTY_NORMAL);
+    }
+    
+    public void onEasySelected(View view) {
+    	Log.v(TAG, "Easy difficulty selected");
+    	mGameOptions.setDifficulty(GameOptions.DIFFICULTY_EASY);
+    }
+    
+    public void on3x3Selected(View view) {
+    	Log.v(TAG, "3x3 game board selected");
+    	mGameOptions.setBoardSize(3);
+    }
+    
+    public void on5x5Selected(View view) {
+    	Log.v(TAG, "5x5 game board selected");
+    	mGameOptions.setBoardSize(5);
     }
     
     private void setupMainMenu() {

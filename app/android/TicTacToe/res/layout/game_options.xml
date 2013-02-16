@@ -116,6 +116,7 @@
         
         <Button android:id="@+id/board_5x5_btn"
             android:text="@string/board_5x5"
+            android:onClick="on5x5Selected"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -123,6 +124,7 @@
             android:layout_marginRight="10dp" />
         <Button android:id="@+id/board_3x3_btn"
             android:text="@string/board_3x3"
+            android:onClick="on3x3Selected"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
