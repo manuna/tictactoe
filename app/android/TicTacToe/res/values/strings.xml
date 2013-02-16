@@ -18,4 +18,10 @@
 	<string name="difficulty">DIFFICULTY:</string>
 	<string name="back">BACK</string>
 	<string name="start">START</string>
+	<string name="easy">EASY</string>
+	<string name="normal">NORMAL</string>
+	<string name="hard">HARD</string>
+	<string name="board_3x3">3x3</string>
+	<string name="board_5x5">5x5</string>
+	<string name="logo">Tic Tac Toe!</string>
 </resources>

@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 public class MainActivity extends FragmentActivity implements Playground.GameListener {
 	
@@ -20,6 +22,7 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        animateLogo();
         
         FragmentManager fragmentMgr = getSupportFragmentManager();
 		fragmentMgr
@@ -131,6 +134,61 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
     	}
     	
     	showStartButton(startButtonVisible);
+    }
+    
+    private void animateLogo() {
+    	final View logoView = findViewById(R.id.logo_image_view); 
+        
+        Animation logoAnim = AnimationUtils.loadAnimation(this, R.anim.logo_anim);
+        logoAnim.setAnimationListener(new Animation.AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				animateSplash();
+			}
+		});
+        
+        logoView.startAnimation(logoAnim);
+    }
+    
+    private void animateSplash() {
+    	final View splashView = findViewById(R.id.splash_screen);
+    	
+		Animation splashAnim = AnimationUtils.loadAnimation(this,
+				R.anim.splash_anim);
+		splashAnim.setAnimationListener(new Animation.AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				splashView.setVisibility(View.GONE);
+			}
+		});
+		
+		splashView.startAnimation(splashAnim);
     }
 
 	@Override

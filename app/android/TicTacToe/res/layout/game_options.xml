@@ -71,20 +71,22 @@
 	        android:layout_marginLeft="18dp" />
         
         <Button android:id="@+id/hard_mode_btn"
-            android:text="HARD"
+            android:text="@string/hard"
+            android:onClick="onHardSelected"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp" />        
         <Button android:id="@+id/normal_mode_btn"
-            android:text="NORMAL"
+            android:text="@string/normal"
+            android:onClick="onNormalSelected"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/hard_mode_btn" />
         <Button android:id="@+id/easy_mode_btn"
-            android:text="EASY"
+            android:text="@string/easy"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -113,14 +115,14 @@
 	        android:layout_alignRight="@id/difficulty_placeholder" />
         
         <Button android:id="@+id/board_5x5_btn"
-            android:text="5x5"
+            android:text="@string/board_5x5"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp" />
         <Button android:id="@+id/board_3x3_btn"
-            android:text="3x3"
+            android:text="@string/board_3x3"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
