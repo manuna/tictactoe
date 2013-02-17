@@ -315,11 +315,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8284272"
-     inkscape:cx="105.52517"
-     inkscape:cy="329.32222"
+     inkscape:zoom="2.0000001"
+     inkscape:cx="238.3414"
+     inkscape:cy="246.19803"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer4"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="993"
@@ -335,7 +335,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -817,24 +817,12 @@
        d="m 5.5000631,976.86218 308.9998769,0"
        id="path4345"
        inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
-       x="112.68848"
-       y="687.17761"
-       id="text3959"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3961"
-         x="112.68848"
-         y="687.17761"
-         style="font-size:18px;fill:#27943d;fill-opacity:1">Tic Tac Toe!</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Menu"
-     style="display:inline">
+     style="display:none">
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2c89a0;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
@@ -975,12 +963,25 @@
          x="112.68848"
          y="114.85645"
          style="font-size:18px;font-style:normal;font-weight:500;fill:#27943d;fill-opacity:1;-inkscape-font-specification:Roboto Medium" /></text>
+    <text
+       transform="translate(0,-572.36218)"
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Roboto;-inkscape-font-specification:Roboto"
+       x="112.68848"
+       y="687.17761"
+       id="text3959"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3961"
+         x="112.68848"
+         y="687.17761"
+         style="font-size:18px;fill:#27943d;fill-opacity:1">Tic Tac Toe!</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Game Options"
-     style="display:none">
+     style="display:inline">
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
@@ -994,7 +995,7 @@
          y="158"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#6d6f5f;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">PLAYER 1:</tspan></text>
     <path
-       style="fill:none;stroke:#acaf97;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#6d6f5f;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 97,172 0,4 208,0 0,-4"
        id="path4008"
        inkscape:connector-curvature="0"
@@ -1060,52 +1061,44 @@
          id="tspan4052"
          x="103.70605"
          y="213.76025">Android</tspan></text>
-    <g
-       id="g4257"
-       transform="translate(0,38)">
-      <g
-         id="g4270"
-         transform="translate(0,-3)">
-        <rect
-           style="fill:none;stroke:#6d6f5f;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-           id="rect4054"
-           width="40"
-           height="24"
-           x="225.5"
-           y="273.5" />
-        <text
-           xml:space="preserve"
-           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#939580;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
-           x="233.81459"
-           y="291.85645"
-           id="text4060"
-           sodipodi:linespacing="125%"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#939580;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk"
-             sodipodi:role="line"
-             id="tspan4062"
-             x="233.81459"
-             y="291.85645">3x3</tspan></text>
-        <rect
-           y="273.5"
-           x="265.5"
-           height="24"
-           width="40"
-           id="rect4064"
-           style="fill:#ffc580;fill-opacity:1;stroke:#6d6f5f;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-        <text
-           sodipodi:linespacing="125%"
-           id="text4056"
-           y="291.85645"
-           x="274.79407"
-           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
-           xml:space="preserve"><tspan
-             y="291.85645"
-             x="274.79407"
-             id="tspan4058"
-             sodipodi:role="line"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">5x5</tspan></text>
-      </g>
-    </g>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect4148"
+       width="50"
+       height="55"
+       x="206"
+       y="293" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#939580;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
+       x="216.76559"
+       y="326.85645"
+       id="text4060"
+       sodipodi:linespacing="125%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#939580;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk"
+         sodipodi:role="line"
+         id="tspan4062"
+         x="216.76559"
+         y="326.85645">3x3</tspan></text>
+    <rect
+       y="293"
+       x="256"
+       height="55"
+       width="50"
+       id="rect4146"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4056"
+       y="326.85645"
+       x="269.26611"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
+       xml:space="preserve"><tspan
+         y="326.85645"
+         x="269.26611"
+         id="tspan4058"
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">5x5</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4080"
@@ -1118,67 +1111,189 @@
          id="tspan4082"
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#6d6f5f;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">DIFFICULTY:</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4096"
+       y="382.85645"
+       x="154.39062"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#939580;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
+       xml:space="preserve"><tspan
+         y="382.85645"
+         x="154.39062"
+         id="tspan4098"
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#939580;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">EASY</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
+       x="199.38623"
+       y="382.85645"
+       id="text4102"
+       sodipodi:linespacing="125%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk"
+         sodipodi:role="line"
+         id="tspan4104"
+         x="199.38623"
+         y="382.85645">MEDIUM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#939580;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
+       x="263.43359"
+       y="382.85645"
+       id="text4135"
+       sodipodi:linespacing="125%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#939580;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk"
+         sodipodi:role="line"
+         id="tspan4137"
+         x="263.43359"
+         y="382.85645">HARD</tspan></text>
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="path3189"
+       d="m 401,172 0,4 9,0 0,-4"
+       style="fill:none;stroke:#6d6f5f;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#acaf97;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 401,228 0,4 9,0 0,-4"
+       id="path3191"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
-       id="g4246"
-       transform="translate(0,56)">
+       id="g4057"
+       style="display:none">
       <rect
          style="fill:none;stroke:#6d6f5f;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         id="rect4094"
-         width="47"
+         id="rect3197"
+         width="40"
          height="24"
-         x="148.5"
+         x="376.82086"
          y="308.5" />
       <text
          xml:space="preserve"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#939580;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
-         x="154.39062"
+         x="385.13544"
          y="326.85645"
-         id="text4096"
+         id="text3199"
          sodipodi:linespacing="125%"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#939580;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk"
            sodipodi:role="line"
-           id="tspan4098"
-           x="154.39062"
-           y="326.85645">EASY</tspan></text>
-      <rect
-         y="308.5"
-         x="195.5"
-         height="24"
-         width="63.000004"
-         id="rect4100"
-         style="fill:#ffc580;fill-opacity:1;stroke:#6d6f5f;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+           id="tspan3201"
+           x="385.13544"
+           y="326.85645">3x3</tspan></text>
       <text
          sodipodi:linespacing="125%"
-         id="text4102"
+         id="text3205"
          y="326.85645"
-         x="199.38623"
+         x="426.11493"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
          xml:space="preserve"><tspan
            y="326.85645"
-           x="199.38623"
-           id="tspan4104"
+           x="426.11493"
+           id="tspan3207"
            sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">MEDIUM</tspan></text>
-      <rect
-         y="308.5"
-         x="258.5"
-         height="24"
-         width="47"
-         id="rect4133"
-         style="fill:none;stroke:#6d6f5f;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text4135"
-         y="326.85645"
-         x="263.43359"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#939580;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
-         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">5x5</tspan></text>
+      <g
+         id="g3209"
+         transform="translate(229.10259,56)">
+        <rect
+           style="fill:none;stroke:#6d6f5f;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3211"
+           width="47"
+           height="24"
+           x="148.5"
+           y="308.5" />
+        <text
+           xml:space="preserve"
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#939580;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
+           x="154.39062"
+           y="326.85645"
+           id="text3213"
+           sodipodi:linespacing="125%"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#939580;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk"
+             sodipodi:role="line"
+             id="tspan3215"
+             x="154.39062"
+             y="326.85645">EASY</tspan></text>
+        <rect
+           y="308.5"
+           x="195.5"
+           height="24"
+           width="63.000004"
+           id="rect3217"
+           style="fill:#ffc580;fill-opacity:1;stroke:#6d6f5f;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text3219"
+           y="326.85645"
+           x="199.38623"
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
+           xml:space="preserve"><tspan
+             y="326.85645"
+             x="199.38623"
+             id="tspan3221"
+             sodipodi:role="line"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#6d6f5f;fill-opacity:1;stroke:none;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">MEDIUM</tspan></text>
+        <rect
+           y="308.5"
+           x="258.5"
+           height="24"
+           width="47"
+           id="rect3223"
+           style="fill:none;stroke:#6d6f5f;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text3225"
            y="326.85645"
            x="263.43359"
-           id="tspan4137"
-           sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#939580;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">HARD</tspan></text>
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#939580;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
+           xml:space="preserve"><tspan
+             y="326.85645"
+             x="263.43359"
+             id="tspan3227"
+             sodipodi:role="line"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#939580;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk">HARD</tspan></text>
+      </g>
     </g>
+    <rect
+       style="fill:#ff907f;fill-opacity:1;stroke:none"
+       id="rect3257"
+       width="100"
+       height="1"
+       x="206"
+       y="342" />
+    <rect
+       style="fill:#ff907f;fill-opacity:1;stroke:none"
+       id="rect3270"
+       width="50"
+       height="3"
+       x="256"
+       y="339" />
+    <rect
+       y="398"
+       x="146"
+       height="1"
+       width="160"
+       id="rect4053"
+       style="fill:#ff907f;fill-opacity:1;stroke:none" />
+    <rect
+       y="395"
+       x="195.5"
+       height="3"
+       width="63"
+       id="rect4055"
+       style="fill:#ff907f;fill-opacity:1;stroke:none" />
+    <rect
+       y="339"
+       x="206"
+       height="3"
+       width="50"
+       id="rect4150"
+       style="fill:#ff907f;fill-opacity:0.49803922;stroke:none" />
   </g>
   <g
      inkscape:groupmode="layer"

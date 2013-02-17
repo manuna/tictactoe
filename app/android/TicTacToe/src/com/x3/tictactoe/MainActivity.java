@@ -12,7 +12,7 @@ import android.view.animation.AnimationUtils;
 
 public class MainActivity extends FragmentActivity implements Playground.GameListener {
 	
-	private final static String TAG = "MainActivity";
+	private final static String TAG = MainActivity.class.getSimpleName();
 	private final static String GAME_OPTIONS_FRAGMENT = "GameOptions";
 	private final static String GAMEBOARD_FRAGMENT = "GameBoard";
 	
@@ -116,6 +116,7 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
     private void showGameOptions(boolean showDifficulty) {
     	GameOptionsFragment fragment = new GameOptionsFragment();
     	fragment.setDifficultyOptionVisible(showDifficulty);
+    	fragment.setGameOptions(mGameOptions);
     	
     	FragmentManager fragmentMgr = getSupportFragmentManager();
 		fragmentMgr

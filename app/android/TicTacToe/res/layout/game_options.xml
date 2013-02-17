@@ -27,7 +27,8 @@
 	        android:layout_toRightOf="@id/player_1_label"
 	        android:layout_marginLeft="5dp"
 	        android:layout_marginRight="10dp"
-	        android:inputType="text" />
+	        android:inputType="text"
+	        android:background="@drawable/edit_text" />
     </RelativeLayout>
     
     <RelativeLayout android:layout_width="match_parent"
@@ -49,7 +50,8 @@
 	        android:layout_toRightOf="@id/player_2_label"
 	        android:layout_marginLeft="5dp"
 	        android:layout_marginRight="10dp"
-	        android:inputType="text" />        
+	        android:inputType="text"
+	        android:background="@drawable/edit_text" />        
     </RelativeLayout>
     
     <View android:layout_width="match_parent"
@@ -71,6 +73,7 @@
 	        android:layout_marginLeft="18dp" />
         
         <Button android:id="@+id/hard_mode_btn"
+            android:background="@drawable/switch_selector"
             android:text="@string/hard"
             android:onClick="onHardSelected"
             android:layout_centerVertical="true"
@@ -79,6 +82,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp" />        
         <Button android:id="@+id/normal_mode_btn"
+            android:background="@drawable/switch_selector"
             android:text="@string/normal"
             android:onClick="onNormalSelected"
             android:layout_centerVertical="true"
@@ -86,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/hard_mode_btn" />
         <Button android:id="@+id/easy_mode_btn"
+            android:background="@drawable/switch_selector"
             android:text="@string/easy"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
@@ -115,6 +120,7 @@
 	        android:layout_alignRight="@id/difficulty_placeholder" />
         
         <Button android:id="@+id/board_5x5_btn"
+            android:background="@drawable/switch_selector"
             android:text="@string/board_5x5"
             android:onClick="on5x5Selected"
             android:layout_centerVertical="true"
@@ -123,6 +129,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp" />
         <Button android:id="@+id/board_3x3_btn"
+            android:background="@drawable/switch_selector"
             android:text="@string/board_3x3"
             android:onClick="on3x3Selected"
             android:layout_centerVertical="true"
