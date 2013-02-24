@@ -12,6 +12,7 @@ public class GameBoardFragment extends Fragment {
 
 	private PlaygroundView mPlaygroundView = null;
 	private Playground mPlayground = new Playground(3);
+	private GameOptions mGameOptions = null;
 	
 	public void setPlayground(Playground playground) {
 		mPlayground = playground;
@@ -50,6 +51,21 @@ public class GameBoardFragment extends Fragment {
 			}
 		});
 		return view;
+	}
+	
+	public GameOptions getGameOptions() {
+		return mGameOptions;
+	}
+	
+	public void setGameOptions(GameOptions gameOptions) {
+		mGameOptions = gameOptions;
+		reloadOptions();
+	}
+	
+	public void reloadOptions() {
+		if (mGameOptions != null) {
+			mPlayground.setSize(mGameOptions.getBoardSize());
+		}
 	}
 	
 	private void restartGame() {

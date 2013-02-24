@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 public class GameOptionsFragment extends Fragment {
+	
+	private static final String TAG = GameOptionsFragment.class.getSimpleName();
 	
 	private GameOptions mGameOptions = null;
 	private boolean mDifficultyOptionVisible = false;
@@ -23,12 +26,44 @@ public class GameOptionsFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		Log.v(TAG, "Loading game options view");
+		
 		View view = inflater.inflate(R.layout.game_options, container,
 				false);
 		initUI(view);
 		updateDifficultyUI(view);
 		updateGameOptionsUI(view);
 		return view;
+	}
+	
+	public void onHardSelected(View view) {
+		Log.v(TAG, "Hard difficulty selected");
+    	mGameOptions.setDifficulty(GameOptions.DIFFICULTY_HARD);
+    	updateSelectedDifficultyButton();
+	}
+	
+	public void onNormalSelected(View view) {
+		Log.v(TAG, "Normal difficulty selected");
+    	mGameOptions.setDifficulty(GameOptions.DIFFICULTY_NORMAL);
+    	updateSelectedDifficultyButton();
+	}
+	
+	public void onEasySelected(View view) {
+		Log.v(TAG, "Easy difficulty selected");
+    	mGameOptions.setDifficulty(GameOptions.DIFFICULTY_EASY);
+    	updateSelectedDifficultyButton();
+	}
+	
+	public void on3x3Selected(View view) {
+		Log.v(TAG, "3x3 game board selected");
+    	mGameOptions.setBoardSize(3);
+    	updateSelectedBoardSizeButton();
+	}
+	
+	public void on5x5Selected(View view) {
+		Log.v(TAG, "5x5 game board selected");
+    	mGameOptions.setBoardSize(5);
+    	updateSelectedBoardSizeButton();
 	}
 	
 	public boolean isDifficultyOptionVisible()

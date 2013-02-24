@@ -19,6 +19,8 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
 	private NavMenuFragment mNavMenuFragment = null;
 	private View mNavMenuRoot = null;
 	private GameOptions mGameOptions = new GameOptions();
+	private GameOptionsFragment mGameOptionsFragment = null;
+	private GameBoardFragment mGameBoardFragment = null;
 
     @SuppressWarnings("deprecation")
 	@Override
@@ -82,28 +84,23 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
     }
     
     public void onHardSelected(View view) {
-    	Log.v(TAG, "Hard difficulty selected");
-    	mGameOptions.setDifficulty(GameOptions.DIFFICULTY_HARD);
+    	mGameOptionsFragment.onHardSelected(view);
     }
     
     public void onNormalSelected(View view) {
-    	Log.v(TAG, "Normal difficulty selected");
-    	mGameOptions.setDifficulty(GameOptions.DIFFICULTY_NORMAL);
+    	mGameOptionsFragment.onNormalSelected(view);
     }
     
     public void onEasySelected(View view) {
-    	Log.v(TAG, "Easy difficulty selected");
-    	mGameOptions.setDifficulty(GameOptions.DIFFICULTY_EASY);
+    	mGameOptionsFragment.onEasySelected(view);
     }
     
     public void on3x3Selected(View view) {
-    	Log.v(TAG, "3x3 game board selected");
-    	mGameOptions.setBoardSize(3);
+    	mGameOptionsFragment.on3x3Selected(view);
     }
     
     public void on5x5Selected(View view) {
-    	Log.v(TAG, "5x5 game board selected");
-    	mGameOptions.setBoardSize(5);
+    	mGameOptionsFragment.on5x5Selected(view);
     }
     
     private void setupMainMenu() {
@@ -114,9 +111,11 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
     }
     
     private void showGameOptions(boolean showDifficulty) {
-    	GameOptionsFragment fragment = new GameOptionsFragment();
-    	fragment.setDifficultyOptionVisible(showDifficulty);
-    	fragment.setGameOptions(mGameOptions);
+    	if (mGameOptionsFragment == null) {
+    		mGameOptionsFragment = new GameOptionsFragment();
+    		mGameOptionsFragment.setGameOptions(mGameOptions);
+    	}
+    	mGameOptionsFragment.setDifficultyOptionVisible(showDifficulty);
     	
     	FragmentManager fragmentMgr = getSupportFragmentManager();
 		fragmentMgr
@@ -125,11 +124,18 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
 						R.anim.slide_out_left,
 						android.R.anim.slide_in_left,
 						android.R.anim.slide_out_right)
-				.replace(R.id.fragment_root, fragment)
+				.replace(R.id.fragment_root, mGameOptionsFragment)
 				.addToBackStack(GAME_OPTIONS_FRAGMENT).commit();
     }
     
     private void showGameBoard() {
+    	if (mGameBoardFragment == null) {
+    		mGameBoardFragment = new GameBoardFragment();
+    		mGameBoardFragment.setGameOptions(mGameOptions);
+    	}
+    	
+    	mGameBoardFragment.reloadOptions();
+    	
     	FragmentManager fragmentMgr = getSupportFragmentManager();
 		fragmentMgr
 				.beginTransaction()
@@ -137,7 +143,7 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
 						R.anim.slide_out_left,
 						android.R.anim.slide_in_left,
 						android.R.anim.slide_out_right)
-				.replace(R.id.fragment_root, new GameBoardFragment())
+				.replace(R.id.fragment_root, mGameBoardFragment)
 				.addToBackStack(GAMEBOARD_FRAGMENT).commit();
     }
     
@@ -175,14 +181,10 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
 			
 			@Override
 			public void onAnimationStart(Animation animation) {
-				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override
 			public void onAnimationRepeat(Animation animation) {
-				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override
@@ -203,14 +205,10 @@ public class MainActivity extends FragmentActivity implements Playground.GameLis
 			
 			@Override
 			public void onAnimationStart(Animation animation) {
-				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override
 			public void onAnimationRepeat(Animation animation) {
-				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override

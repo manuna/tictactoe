@@ -88,6 +88,7 @@
             android:layout_toLeftOf="@id/hard_mode_btn"
             style="@style/SwitchButton" />
         <Button android:id="@+id/easy_mode_btn"
+            android:onClick="onEasySelected"
             android:text="@string/easy"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
