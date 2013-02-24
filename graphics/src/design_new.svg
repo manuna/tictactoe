@@ -315,9 +315,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.0000001"
-     inkscape:cx="238.3414"
-     inkscape:cy="246.19803"
+     inkscape:zoom="2.8284273"
+     inkscape:cx="88.488685"
+     inkscape:cy="220.8692"
      inkscape:document-units="px"
      inkscape:current-layer="layer4"
      showgrid="false"
@@ -335,7 +335,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1061,32 +1061,18 @@
          id="tspan4052"
          x="103.70605"
          y="213.76025">Android</tspan></text>
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       id="rect4148"
-       width="50"
-       height="55"
-       x="206"
-       y="293" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#939580;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#58594c;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
        x="216.76559"
        y="326.85645"
        id="text4060"
        sodipodi:linespacing="125%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#939580;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#58594c;fill-opacity:1;font-family:Roboto Bk;-inkscape-font-specification:Roboto Bk"
          sodipodi:role="line"
          id="tspan4062"
          x="216.76559"
          y="326.85645">3x3</tspan></text>
-    <rect
-       y="293"
-       x="256"
-       height="55"
-       width="50"
-       id="rect4146"
-       style="fill:#ffffff;fill-opacity:1;stroke:none" />
     <text
        sodipodi:linespacing="125%"
        id="text4056"
@@ -1294,6 +1280,17 @@
        width="50"
        id="rect4150"
        style="fill:#ff907f;fill-opacity:0.49803922;stroke:none" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
+       x="373.49997"
+       y="321"
+       id="text3204"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3206"
+         x="373.49997"
+         y="321" /></text>
   </g>
   <g
      inkscape:groupmode="layer"
